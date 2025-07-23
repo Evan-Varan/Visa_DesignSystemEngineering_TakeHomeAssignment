@@ -1,8 +1,10 @@
 import { useState } from "react";
+import OutputSection from "../OutputSection/OuputSection";
 
 function InputSelection(){
     const [textEntry, setTextEntry] = useState("");
     const [errorText, setErrorText] = useState("");
+    const [searchTerm, setSearchTerm] = useState("");
 
     const handleTextEntry = (e: React.ChangeEvent<HTMLInputElement>) => {
         setTextEntry(e.target.value);
@@ -13,8 +15,7 @@ function InputSelection(){
             setErrorText("Please fill out the text box before submitting.")
         }
         else{
-            //call component fetcher
-            console.log("Submitted:", textEntry);
+            setSearchTerm(textEntry)
             setTextEntry("");
             setErrorText("");
         }
@@ -46,6 +47,8 @@ function InputSelection(){
             </button>
         </div>
         {errorText ? <p className="text-red-500">{errorText}</p> : null}
+        
+      <OutputSection searchTerm={searchTerm} />
 
     </div>
     )
