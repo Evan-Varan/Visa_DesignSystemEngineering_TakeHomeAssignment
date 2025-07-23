@@ -1,7 +1,5 @@
 import { useState } from "react";
 
-
-
 function InputSelection(){
     const [textEntry, setTextEntry] = useState("");
     const [errorText, setErrorText] = useState("");
