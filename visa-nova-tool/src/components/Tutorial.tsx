@@ -1,92 +1,76 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { NavBar } from './Navbar';
+import React, { useState, useEffect } from "react";
+import Joyride from "react-joyride";
+import type { Step } from "react-joyride";
 
-function Tutorial() {
+const Tutorial: React.FC = () => {
+  const [run, setRun] = useState(false);
+
+  const steps: Step[] = [
+    {
+      target: ".visa-form-card",
+      content: "Welcome to the Visa Design AI Assistant! Let's take a quick tour.",
+      placement: "center",
+      disableBeacon: true,
+    },
+    {
+      target: ".visa-examples-list",
+      content: "Here are some example components you can generate.",
+      placement: "bottom",
+    },
+    {
+      target: ".visa-input",
+      content: "Type the name of the component you want to build here.",
+      placement: "bottom",
+    },
+    {
+      target: ".visa-button--primary",
+      content: "Click Generate to create your component using Visa Nova design.",
+      placement: "right",
+    },
+    {
+      target: ".output-section",
+      content: "Your generated component and code will appear here.",
+      placement: "top",
+    },
+  ];
+  useEffect(() => {
+    const timer = setTimeout(() => setRun(true), 500); // Wait for DOM to mount
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    const hasSeenTour = localStorage.getItem("hasSeenTour");
+    if (!hasSeenTour) {
+      setRun(true);
+    }
+  }, []);
+
+  const handleTourEnd = () => {
+    localStorage.setItem("hasSeenTour", "true");
+    setRun(false);
+  };
+
   return (
-    <div className="vn-landing-root">
-      <NavBar />
-      
-      <main className="visa-tutorial-container">
-        <div className="visa-tutorial-header">
-          <h1 className="visa-tutorial-title">Tutorial</h1>
-          <p className="visa-tutorial-subtitle">
-            Learn how to use the Visa Nova Component Tool effectively
-          </p>
-        </div>
-
-        <div className="visa-tutorial-content">
-          <div className="visa-tutorial-section">
-            <h2>Getting Started</h2>
-            <p>
-              Welcome to the Visa Nova Component Tool! This tool helps you discover, 
-              preview, and save Visa Nova components for your projects.
-            </p>
-          </div>
-
-          <div className="visa-tutorial-section">
-            <h2>How to Use</h2>
-            <ol className="visa-tutorial-steps">
-              <li>
-                <strong>Search Components:</strong> Go to the Build page and use the search 
-                bar to find specific components like "Button", "Input", or "Form".
-              </li>
-              <li>
-                <strong>Preview Code:</strong> Click on any component to see its code 
-                implementation and live preview.
-              </li>
-              <li>
-                <strong>Save Snippets:</strong> Use the "Save Snippet" button to store 
-                useful code snippets for later use.
-              </li>
-              <li>
-                <strong>View Saved Snippets:</strong> Navigate to "Saved Snippets" to 
-                see all your saved code snippets.
-              </li>
-            </ol>
-          </div>
-
-          <div className="visa-tutorial-section">
-            <h2>Available Components</h2>
-            <div className="visa-component-list">
-              <div className="visa-component-item">
-                <h3>Buttons</h3>
-                <p>Primary, secondary, and tertiary button styles</p>
-              </div>
-              <div className="visa-component-item">
-                <h3>Inputs</h3>
-                <p>Text inputs, password fields, and form controls</p>
-              </div>
-              <div className="visa-component-item">
-                <h3>Forms</h3>
-                <p>Complete form implementations with validation</p>
-              </div>
-              <div className="visa-component-item">
-                <h3>Navigation</h3>
-                <p>Header components and navigation elements</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="visa-tutorial-section">
-            <h2>Tips & Best Practices</h2>
-            <ul className="visa-tutorial-tips">
-              <li>Use descriptive titles when saving snippets for easier organization</li>
-              <li>Copy snippets directly to your clipboard for quick integration</li>
-              <li>Delete old snippets to keep your collection organized</li>
-              <li>Explore different component variations to find the perfect fit</li>
-            </ul>
-          </div>
-
-          <div className="visa-tutorial-cta">
-            <Link to="/build" className="visa-button visa-button--primary">
-              Start Building Now
-            </Link>
-          </div>
-        </div>
-      </main>
-    </div>
+    <Joyride
+      steps={steps}
+      run={run}
+      continuous
+      showSkipButton
+      showProgress
+      styles={{
+        options: {
+          primaryColor: "#142787", // Visa blue
+          zIndex: 1000,
+        },
+      }}
+      callback={(data) => {
+        const { status } = data;
+        if (status === "finished" || status === "skipped") {
+          handleTourEnd();
+        }
+      }}
+    />
   );
-}
+};
 
-export default Tutorial; 
+export default Tutorial;

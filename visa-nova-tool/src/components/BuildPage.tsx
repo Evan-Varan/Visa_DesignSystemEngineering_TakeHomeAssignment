@@ -5,6 +5,7 @@ import { Button } from '@visa/nova-react';
 import { Link } from 'react-router-dom';
 import InputSection from "./InputSection/InputSection";
 import { NavBar } from "./Navbar";
+import Tutorial from "./Tutorial";
 
 const BuildPage: React.FC = () => {
 
@@ -12,6 +13,7 @@ const BuildPage: React.FC = () => {
 
     <div className="vn-landing-root">
       <NavBar />
+      <Tutorial />
       <InputSection />
 
       {/* Footer */}
