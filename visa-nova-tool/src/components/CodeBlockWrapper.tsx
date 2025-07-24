@@ -2,13 +2,12 @@ import React from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import CopyButton from "./CopyButton/CopyButton";
+import SaveSnippetButton from "./SaveSnippetButton";
+import DownloadSnippetButton from "./DownloadSnippet";
 
-type CodeBlockWrapperProps = {
-  code: string;
-  language?: string;
-};
 
-const CodeBlockWrapper: React.FC<CodeBlockWrapperProps> = ({ code, language = "tsx" }) => {
+
+function CodeBlockWrapper ({code , title}: {code: string, title: string}){
   return (
     <div
       style={{
@@ -32,13 +31,17 @@ const CodeBlockWrapper: React.FC<CodeBlockWrapperProps> = ({ code, language = "t
           fontFamily: "monospace",
         }}
       >
-        <span>{language}</span>
-        <CopyButton text={code} />
+        <span>tsx</span>
+        <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
+          <CopyButton text={code} />
+          <SaveSnippetButton snippet={code} title={title} />
+          <DownloadSnippetButton snippet={code} title={title} />
+        </div>
       </div>
 
       {/* Syntax highlighted code */}
       <SyntaxHighlighter
-        language={language}
+        language="tsx"
         style={oneDark}
         showLineNumbers
         customStyle={{

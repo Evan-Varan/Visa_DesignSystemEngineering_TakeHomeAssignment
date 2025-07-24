@@ -21,12 +21,6 @@ const partTitleStyle = {
   color: '#1a237e',
 };
 
-// const CodeBlock = ({ code }: { code: string }) => (
-//   <SyntaxHighlighter language="tsx" style={oneDark} showLineNumbers>
-//     {code}
-//   </SyntaxHighlighter>
-// );
-
 function OutputSection({ searchTerm }: { searchTerm: string }) {
   // Find the combined component by name (case-insensitive)
   const combined = CombindedComponents.find(
@@ -43,7 +37,7 @@ function OutputSection({ searchTerm }: { searchTerm: string }) {
         </div>
         <div style={sectionStyle}>
           <h3 style={{ fontSize: 18, fontWeight: 600, marginBottom: 10 }}>Combined Code</h3>
-          <CodeBlockWrapper code={combined.combindedCode} language="tsx" />
+          <CodeBlockWrapper code={combined.combindedCode} title={combined.name} />
         </div>
         <div style={sectionStyle}>
           <h3 style={{ fontSize: 18, fontWeight: 600, marginBottom: 18 }}>Individual Parts</h3>
@@ -53,7 +47,7 @@ function OutputSection({ searchTerm }: { searchTerm: string }) {
               <div style={{ marginBottom: 24 }} key={part.name}>
                 <div style={partTitleStyle}>{part.name}</div>
                 <PartPreview />
-                <CodeBlockWrapper code={part.code} language="tsx" />
+                <CodeBlockWrapper code={part.code} title={part.name} />
               </div>
             );
           })}

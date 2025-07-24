@@ -1,16 +1,20 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import './App.css'
-import InputSelection from './components/InputSelection/InputSection'
+import LandingPage from './components/landingpage'
+import BuildPage from './components/BuildPage'
+import Tutorial from './components/Tutorial'
+import SavedSnippets from './components/SavedSnippets'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <InputSelection/>
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/build" element={<BuildPage />} />
+        <Route path="/tutorial" element={<Tutorial />} />
+        <Route path="/savedsnippets" element={<SavedSnippets />} />
+      </Routes>
+    </Router>
   )
 }
 
