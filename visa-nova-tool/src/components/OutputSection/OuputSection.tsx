@@ -1,70 +1,68 @@
-import { visaComponents } from "./visaComponents";
-import type { ComponentVariant } from "./visaComponents";
-import { Component, useState, useEffect } from "react";
-import { Button } from '@visa/nova-react';
-type Props = {
-    searchTerm: string;
-  };
+import React from "react";
+import { CombindedComponents } from "./visaComponentExamples";
+import type { CombindedComponent, Component } from "./visaComponentExamples";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
-function OutputSection({searchTerm}: Props){
+const sectionStyle = {
+  border: '1px solid #e5e7eb',
+  borderRadius: 12,
+  background: '#fff',
+  padding: '24px 20px',
+  marginBottom: 32,
+  boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
+};
 
-    const [matchedComponent, setMatchedComponent] = useState<ComponentVariant | null>(null);
+const partTitleStyle = {
+  fontSize: 16,
+  fontWeight: 600,
+  margin: '18px 0 8px 0',
+  color: '#1a237e',
+};
 
-    useEffect(() => { //we use useEffect so we only run each time after searchTerm renders
-        const words = searchTerm.toLowerCase().split(/\s+/) //regex to split by each space character
-        let foundComponent : ComponentVariant | null = null;
+const CodeBlock = ({ code }: { code: string }) => (
+  <SyntaxHighlighter language="tsx" style={oneDark} showLineNumbers>
+    {code}
+  </SyntaxHighlighter>
+);
 
-        
-        visaComponents.forEach((component) => {
-            // Top Level Search (ie button, table, panel )
-            const componentMatch = words.some((word) =>
-            component.keywords.some((k) => k.toLowerCase() === word)
-            );
+function OutputSection({ searchTerm }: { searchTerm: string }) {
+  // Find the combined component by name (case-insensitive)
+  const combined = CombindedComponents.find(
+    (c: CombindedComponent) => c.name.toLowerCase() === searchTerm.toLowerCase()
+  );
 
-            // If user specifies a specific variant (ie icon button)
-            const variantMatch = component.variants.find((v) =>
-            words.some((word) =>
-                v.keywords.some((vk) => vk.toLowerCase() === word)
-            )
-            );
-
-            if (variantMatch) {
-                foundComponent = variantMatch;
-            } else if (componentMatch) {
-                
-            //if user isnt super specific and say "button" return the default 
-            const defaultVariant = component.variants.find((v) => v.isDefault);
-            if (defaultVariant) {
-                foundComponent = defaultVariant;
-            }
-            }
-        });
-    setMatchedComponent(foundComponent);
-    },[searchTerm]) //search term is the dependancy array.
-
+  if (combined) {
+    const CombinedPreview = combined.combindedPreview;
     return (
-        <div>
-          {matchedComponent && (
-            <>
-              <p>
-                Your search of "{searchTerm}" returned: <strong>{matchedComponent.secondaryName}</strong>
-              </p>
-              <div>
-                <p>Code for the {matchedComponent.secondaryName}:</p>
-                <pre className="bg-gray-100 p-2 rounded text-sm">
-                  {matchedComponent.code}
-                </pre>
-              </div>
-              <div>
-                <p>Preview for the {matchedComponent.secondaryName}:</p>
-                <div className="bg-gray-100 p-4 rounded flex justify-center items-center">
-                    <matchedComponent.component />
-                </div>
-
-              </div>
-            </>
-          )}
+      <div>
+        <div style={sectionStyle}>
+          <h2 style={{ fontSize: 22, fontWeight: 700, marginBottom: 16 }}>Combined Preview</h2>
+          <CombinedPreview />
         </div>
-      );      
+        <div style={sectionStyle}>
+          <h3 style={{ fontSize: 18, fontWeight: 600, marginBottom: 10 }}>Combined Code</h3>
+          <CodeBlock code={combined.combindedCode} />
+        </div>
+        <div style={sectionStyle}>
+          <h3 style={{ fontSize: 18, fontWeight: 600, marginBottom: 18 }}>Individual Parts</h3>
+          {combined.individualComponents.map((part: Component, idx: number) => {
+            const PartPreview = part.preview;
+            return (
+              <div style={{ marginBottom: 24 }} key={part.name}>
+                <div style={partTitleStyle}>{part.name}</div>
+                <PartPreview />
+                <CodeBlock code={part.code} />
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    );
+  }
+
+  // Placeholder for other search terms
+  return null;
 }
-export default OutputSection
+
+export default OutputSection;

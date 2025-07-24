@@ -24,7 +24,7 @@ function InputSelection(){
     return(
     <div className="flex flex-col gap-3 p-4 max-w-lg mx-auto">
         <label htmlFor="input" className="text-lg font-semibold">
-            What component are you looking for?
+            What do you want to build?
         </label>
 
         <div className="flex gap-2">
