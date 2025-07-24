@@ -1,9 +1,9 @@
 import React from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
-import CopyButton from "./CopyButton/CopyButton";
-import SaveSnippetButton from "./SaveSnippetButton";
-import DownloadSnippetButton from "./DownloadSnippet";
+import CopyButton from "./CodeWrapperComponents/CopyButton";
+import SaveSnippetButton from "./CodeWrapperComponents/SaveSnippetButton";
+import DownloadSnippetButton from "./CodeWrapperComponents/DownloadSnippetButton";
 
 
 

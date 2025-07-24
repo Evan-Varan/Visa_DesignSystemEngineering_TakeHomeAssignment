@@ -1,14 +1,14 @@
 import React from "react";
-import { LoginFormCode } from "./componentDefinitions/VisaComponentCode/VisaLoginForm";
-import { InputWithInitialValue, InputWithInitialValueCode } from "./componentDefinitions/IndividualComponents/InputWithInitialValue";
-import { InputWithMaskedField, InputWithMaskedFieldCode } from "./componentDefinitions/IndividualComponents/InputWithMaskedField";
-import { CheckBoxWithLabel, CheckBoxWithLabelCode } from "./componentDefinitions/IndividualComponents/CheckBoxWithLabel";
-import { SubmitButton, SubmitButtonCode } from "./componentDefinitions/IndividualComponents/SubmitButton";
-import { SearchBarCode } from "./componentDefinitions/VisaComponentCode/VisaSearchBar";
-import { NewsLetterCode } from "./componentDefinitions/VisaComponentCode/VisaNewsLetter";
-import { PaymentCardFormCode} from "./componentDefinitions/VisaComponentCode/VisaPaymentCardForm";
-import { LinkWithLabel, LinkWithLabelCode } from "./componentDefinitions/IndividualComponents/LinkWithLabel";
-import {TwoFactorAuthCode} from "./componentDefinitions/VisaComponentCode/Visa2FAVerificationForm"
+import { LoginFormCode } from "./VisaComponents/VisaCombinedComponentCode/VisaLoginForm";
+import { InputWithInitialValue, InputWithInitialValueCode } from "./VisaComponents/VisaIndividualComponents/InputWithInitialValue";
+import { InputWithMaskedField, InputWithMaskedFieldCode } from "./VisaComponents/VisaIndividualComponents/InputWithMaskedField";
+import { CheckBoxWithLabel, CheckBoxWithLabelCode } from "./VisaComponents/VisaIndividualComponents/CheckBoxWithLabel";
+import { SubmitButton, SubmitButtonCode } from "./VisaComponents/VisaIndividualComponents/SubmitButton";
+import { SearchBarCode } from "./VisaComponents/VisaCombinedComponentCode/VisaSearchBar";
+import { NewsLetterCode } from "./VisaComponents/VisaCombinedComponentCode/VisaNewsLetter";
+import { PaymentCardFormCode} from "./VisaComponents/VisaCombinedComponentCode/VisaPaymentCardForm";
+import { LinkWithLabel, LinkWithLabelCode } from "./VisaComponents/VisaIndividualComponents/LinkWithLabel";
+import {TwoFactorAuthCode} from "./VisaComponents/VisaCombinedComponentCode/Visa2FAVerificationForm"
 
 export type Component = {
     name: string;

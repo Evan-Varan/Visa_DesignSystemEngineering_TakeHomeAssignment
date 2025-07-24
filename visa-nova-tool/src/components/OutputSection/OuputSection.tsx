@@ -3,8 +3,8 @@ import { CombindedComponents } from "./visaComponentExamples";
 import type { CombindedComponent, Component } from "./visaComponentExamples";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
-import CopyButton from "../CopyButton/CopyButton";
-import CodeBlockWrapper from "../CodeBlockWrapper";
+import CopyButton from "./CodeWrapper/CodeWrapperComponents/CopyButton";
+import CodeBlockWrapper from "./CodeWrapper/CodeBlockWrapper";
 const sectionStyle = {
   border: '1px solid #e5e7eb',
   borderRadius: 12,
