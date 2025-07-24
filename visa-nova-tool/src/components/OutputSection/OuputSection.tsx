@@ -3,7 +3,8 @@ import { CombindedComponents } from "./visaComponentExamples";
 import type { CombindedComponent, Component } from "./visaComponentExamples";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
-
+import CopyButton from "../CopyButton/CopyButton";
+import CodeBlockWrapper from "../CodeBlockWrapper";
 const sectionStyle = {
   border: '1px solid #e5e7eb',
   borderRadius: 12,
@@ -20,11 +21,11 @@ const partTitleStyle = {
   color: '#1a237e',
 };
 
-const CodeBlock = ({ code }: { code: string }) => (
-  <SyntaxHighlighter language="tsx" style={oneDark} showLineNumbers>
-    {code}
-  </SyntaxHighlighter>
-);
+// const CodeBlock = ({ code }: { code: string }) => (
+//   <SyntaxHighlighter language="tsx" style={oneDark} showLineNumbers>
+//     {code}
+//   </SyntaxHighlighter>
+// );
 
 function OutputSection({ searchTerm }: { searchTerm: string }) {
   // Find the combined component by name (case-insensitive)
@@ -42,17 +43,17 @@ function OutputSection({ searchTerm }: { searchTerm: string }) {
         </div>
         <div style={sectionStyle}>
           <h3 style={{ fontSize: 18, fontWeight: 600, marginBottom: 10 }}>Combined Code</h3>
-          <CodeBlock code={combined.combindedCode} />
+          <CodeBlockWrapper code={combined.combindedCode} language="tsx" />
         </div>
         <div style={sectionStyle}>
           <h3 style={{ fontSize: 18, fontWeight: 600, marginBottom: 18 }}>Individual Parts</h3>
-          {combined.individualComponents.map((part: Component, idx: number) => {
+          {combined.individualComponents.map((part: Component) => {
             const PartPreview = part.preview;
             return (
               <div style={{ marginBottom: 24 }} key={part.name}>
                 <div style={partTitleStyle}>{part.name}</div>
                 <PartPreview />
-                <CodeBlock code={part.code} />
+                <CodeBlockWrapper code={part.code} language="tsx" />
               </div>
             );
           })}
