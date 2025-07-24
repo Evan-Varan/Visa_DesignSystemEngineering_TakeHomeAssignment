@@ -722,3 +722,21 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Examples List Styles */
+.visa-examples-list {
+  margin-bottom: 24px;
+  padding-left: 20px;
+  list-style-type: disc;
+}
+
+.visa-examples-list li {
+  font-size: 14px;
+  color: #142787;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.visa-examples-list li:last-child {
+  margin-bottom: 0;
+}
