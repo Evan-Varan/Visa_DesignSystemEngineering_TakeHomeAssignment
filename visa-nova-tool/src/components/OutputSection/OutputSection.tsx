@@ -8,7 +8,7 @@ function OutputSection({ searchTerm }: { searchTerm: string }) {
       <ContentCard style={{ height: "100%", display: "flex", flexDirection: "column", border: "1px solid #e5e7eb", borderRadius: "12px" }}>
         <ContentCardBody style={{ flex: "1", display: "flex", flexDirection: "column", padding: "0" }}>
           <OutputHeader />
-          <div style={{ flex: "1", overflowY: "auto", padding: "24px", backgroundColor: "white", position: "relative" }}>
+          <div style={{ flex: "1", overflowY: "auto", padding: "24px", backgroundColor: "white", position: "relative", borderRadius: "0 0 12px 12px" }}>
             <OutputContent searchTerm={searchTerm} />
           </div>
         </ContentCardBody>

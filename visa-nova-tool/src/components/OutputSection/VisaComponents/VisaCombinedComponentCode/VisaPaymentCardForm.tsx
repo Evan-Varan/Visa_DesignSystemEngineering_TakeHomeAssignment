@@ -13,7 +13,7 @@ export const PaymentCardForm = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <form style={{maxWidth: '340px', margin: '0 auto', padding: '16px', backgroundColor: '#fff', border: '1px solid #ccc', borderRadius: '8px'}}>
+    <div style={{maxWidth: '340px', margin: '0 auto', padding: '16px', backgroundColor: '#fff', border: '1px solid #ccc', borderRadius: '8px'}}>
       <Utility vFlex vFlexCol vGap={16}>
         {/* First Input */}
         <Utility vFlex vFlexCol vGap={4}>
@@ -72,7 +72,7 @@ export const PaymentCardForm = () => {
         {/* Submit Button */}
         <Button>Submit</Button>
       </Utility>
-    </form>
+    </div>
   );
 };
 
@@ -92,7 +92,7 @@ export const CombinedForm = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <form style={{maxWidth: '340px', margin: '0 auto', padding: '16px', backgroundColor: '#fff', border: '1px solid #ccc', borderRadius: '8px'}}>
+    <div style={{maxWidth: '340px', margin: '0 auto', padding: '16px', backgroundColor: '#fff', border: '1px solid #ccc', borderRadius: '8px'}}>
       <Utility vFlex vFlexCol vGap={16}>
         {/* First Input */}
         <Utility vFlex vFlexCol vGap={4}>
@@ -151,7 +151,7 @@ export const CombinedForm = () => {
         {/* Submit Button */}
         <Button>Submit</Button>
       </Utility>
-    </form>
+    </div>
   );
 };`.trim();
 

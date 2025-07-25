@@ -3,7 +3,7 @@ import AgentChatInterface from "./InputSection/MockAIAgent/AgentChatInterface";
 import OutputSection from "./OutputSection/OutputSection";
 import { NavBar } from "./Navbar";
 import Tutorial from "./Tutorial";
-import { DefaultFooter } from "./OutputSection/VisaComponents/VisaIndividualComponents/Footer";
+import { DefaultFooter } from "./OutputSection/VisaComponents/VisaIndividualComponents/DefaultFooter";
 
 const BuildPage: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -16,7 +16,7 @@ const BuildPage: React.FC = () => {
         <AgentChatInterface setSearchTerm={setSearchTerm} />
         <OutputSection searchTerm={searchTerm} />
       </div>
-      <DefaultFooter />
+      {/* <DefaultFooter /> */}
     </div>
   );
 };

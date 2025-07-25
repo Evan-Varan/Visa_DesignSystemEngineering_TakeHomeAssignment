@@ -16,16 +16,6 @@ const styles = {
     marginBottom: 32,
     boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
   },
-  title: {
-    margin: '0 0 16px 0',
-    color: '#142787',
-    padding: '12px 16px',
-    borderRadius: '8px',
-    border: '1px solid #e5e7eb',
-    display: 'flex',
-    alignItems: 'center',
-    gap: '8px'
-  },
   clickable: {
     margin: '8px 0',
     color: '#142787',
@@ -34,6 +24,10 @@ const styles = {
     alignItems: 'center',
     gap: '8px',
     padding: '8px 12px',
+    border: '1px solid #e5e7eb',
+    borderRadius: '8px',
+    backgroundColor: '#f9fafb',
+    textDecoration: 'underline',
   },
   card: {
     border: '1px solid #e5e7eb',
@@ -115,36 +109,39 @@ function OutputContent({ searchTerm }: { searchTerm: string }) {
       
       {/* Combined Code */}
       <div style={styles.section}>
-        <Typography variant="headline-3" style={{ marginBottom: 16 }}>Combined Code</Typography>
+      <Typography variant="headline-2" style={{ marginBottom: 16 }}>Combined Code:</Typography>
         <CodeBlockWrapper code={combined.combinedCode} title={combined.name} />
       </div>
       
       {/* Individual Components each with UI and code as well as code wrapper*/}
       <div style={styles.section}>
-        <Typography variant="headline-3" style={{ marginBottom: 16 }}>Individual Components</Typography>
-        {combined.individualComponents.map((part: Component) => {
-          const PartPreview = part.preview;
-          return (
-            <div 
-              style={styles.card} 
-              key={part.name}
-              ref={(el) => {
-                componentRefs.current[part.name] = el;
-              }}
-              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            >
-              
-              <div style={styles.title}>
-                <Typography variant="headline-4">{part.name}</Typography>
+        <Typography variant="headline-2" style={{ marginBottom: 16 }}>Individual Components:</Typography>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+          {combined.individualComponents.map((part: Component) => {
+            const PartPreview = part.preview;
+            return (
+              <div 
+                style={styles.card} 
+                key={part.name}
+                ref={(el) => {
+                  componentRefs.current[part.name] = el;
+                }}
+              >
+              <div 
+                style={styles.clickable}
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              >
+                <Typography variant="body-1">{part.name}</Typography>
                 <VisaChevronUpTiny />
               </div>
-              <div style={{ marginBottom: '16px' }}>
+              <div style={{ marginTop: '16px', marginBottom: '20px' }}>
                 <PartPreview />
               </div>
               <CodeBlockWrapper code={part.code} title={part.name} />
-            </div>
-          );
-        })}
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
