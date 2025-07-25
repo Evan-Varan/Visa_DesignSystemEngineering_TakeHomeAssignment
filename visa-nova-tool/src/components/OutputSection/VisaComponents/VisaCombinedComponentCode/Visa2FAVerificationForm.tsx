@@ -1,3 +1,34 @@
+
+import React from 'react';
+import { Button, Input, InputContainer, Label, Utility, Link } from '@visa/nova-react';
+
+const TwoFactorAuth = () => {
+  const inputId = 'input-initial-value';
+
+  return (
+    <Utility vFlex vFlexCol vGap={16} style={{ maxWidth: 400, margin: '0 auto' }}>
+      {/* Input Section */}
+      <Utility vFlex vFlexCol vGap={4}>
+        <Label htmlFor={inputId}>Label (required)</Label>
+        <InputContainer>
+          <Input aria-required="true" defaultValue="Initial value" id={inputId} type="text" />
+        </InputContainer>
+      </Utility>
+
+      {/* Button */}
+      <Button>Primary action</Button>
+
+      {/* Link */}
+      <Link href="./link" target="_blank" style={{ marginTop: '8px' }}>
+        Destination label
+      </Link>
+    </Utility>
+  );
+};
+export default TwoFactorAuth;
+
+
+
 export const TwoFactorAuthCode = `
 import { Input, InputContainer, Label, Utility, Link, Button } from '@visa/nova-react';
 

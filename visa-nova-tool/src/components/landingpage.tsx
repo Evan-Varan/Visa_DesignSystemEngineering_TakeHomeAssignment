@@ -1,34 +1,51 @@
-import React, { useState } from "react";
-import OutputSection from "./OutputSection/OuputSection";
-import "../App.css"; // Use global stylesheet for new classes
-import { Button } from '@visa/nova-react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { useNavigate } from 'react-router-dom';
 import { NavBar } from "./Navbar";
+import {
+  ContentCard,
+  ContentCardBody,
+  ContentCardTitle,
+  ContentCardSubtitle,
+  Typography,
+  Surface,
+  Footer,
+  UtilityFragment,
+  Button,
+} from '@visa/nova-react';
+import {
+  VisaAccountLow,
+  VisaCheckLow,
+  VisaCloseLow,
+} from '@visa/nova-icons-react';
+import { ImageHeaderContentCard } from "./OutputSection/VisaComponents/VisaIndividualComponents/ImageContentCard";
+import { DefaultFooter } from "./OutputSection/VisaComponents/VisaIndividualComponents/Footer";
+import { CompactDashboardContentCard } from "./OutputSection/VisaComponents/VisaIndividualComponents/CompactDashBoardCardContent";
 
 const LandingPage: React.FC = () => {
+  const navigate = useNavigate();
 
   return (
-    <div className="vn-landing-root">
+    <div>
       <NavBar />
-
       {/* Hero Section */}
-      <section className="vn-hero">
-        <h1 className="vn-hero__title">Build with Visa Nova Components</h1>
-        <p className="vn-hero__desc">
-          Search, preview, and copy Visa Nova components for faster and consistent UI development.
-        </p>
-        <Link to="/build">
-          <button className="vn-btn vn-btn--primary vn-hero__cta">Try It Now</button>
-        </Link>
-        <Link to="/tutorial">
-          <button className="visa-button visa-button--secondary vn-hero__cta">View Tutorial</button>
-        </Link>
-      </section>
+        <UtilityFragment vPaddingVertical={24} vPaddingHorizontal={16}>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 16, textAlign: 'center' }}>
+            <Typography variant="display-1">Build with Visa Nova Components</Typography>
+            <Typography variant="headline-2" colorScheme="subtle">Search, preview, and copy Visa Nova components for faster and consistent UI development.</Typography>
+            <div style={{ display: 'flex', gap: 8 }} className="v-hide-mobile">
+              <Button buttonSize="large" onClick={() => navigate('/build')}>Try It Now</Button>
+              <Button buttonSize="large" colorScheme="secondary" onClick={() => { localStorage.setItem('hasSeenTour', 'false'); navigate('/build'); }}>View Tutorial</Button>
+            </div>
+          </div>
+        </UtilityFragment>
 
-      {/* Footer */}
-      <footer className="vn-footer">
-        © 2025 Visa Inc. All rights reserved.
-      </footer>
+      <div style={{ display: 'flex', flexDirection: 'row'}}>
+        {/* <ImageHeaderContentCard/>
+        <ImageHeaderContentCard/> */}
+      </div>
+      {/* <CompactDashboardContentCard />  */}
+      <DefaultFooter />
+      
     </div>
   );
 };

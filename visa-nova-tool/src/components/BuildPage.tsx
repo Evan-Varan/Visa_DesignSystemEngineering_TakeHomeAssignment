@@ -1,27 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
 import OutputSection from "./OutputSection/OuputSection";
-import "../App.css";
-import { Button } from '@visa/nova-react';
-import { Link } from 'react-router-dom';
+import { Footer, Typography } from '@visa/nova-react';
 import InputSection from "./InputSection/InputSection";
 import { NavBar } from "./Navbar";
 import Tutorial from "./Tutorial";
 
 const BuildPage: React.FC = () => {
-
   return (
-
-    <div className="vn-landing-root">
+    <div>
       <NavBar />
       <Tutorial />
       <InputSection />
-
-      {/* Footer */}
-      <footer className="vn-footer">
-        © 2025 Visa Inc. All rights reserved.
-      </footer>
+      <Footer style={{ marginTop: 40, textAlign: 'center' }}>
+        <Typography variant="body-2" colorScheme="subtle">
+          © 2025 Visa Inc. All rights reserved.
+        </Typography>
+      </Footer>
     </div>
-
   );
 };
 

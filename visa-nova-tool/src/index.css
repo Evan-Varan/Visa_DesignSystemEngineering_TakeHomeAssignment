@@ -1,1 +1,11 @@
-@import "tailwindcss";
+/* Visa Nova Design System styles are imported globally in App.tsx */
+
+/* Ensure proper font rendering for Visa Nova Design System */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Let Visa Nova Design System handle its own fonts */
+/* The design system should include proper font definitions */

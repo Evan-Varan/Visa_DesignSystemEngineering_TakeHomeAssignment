@@ -1,10 +1,8 @@
 import React from "react";
-import { CombindedComponents } from "./visaComponentExamples";
-import type { CombindedComponent, Component } from "./visaComponentExamples";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
-import CopyButton from "./CodeWrapper/CodeWrapperComponents/CopyButton";
+import { CombinedComponents } from "./visaComponentExamples";
+import type { CombinedComponent, Component } from "./visaComponentExamples";
 import CodeBlockWrapper from "./CodeWrapper/CodeBlockWrapper";
+
 const sectionStyle = {
   border: '1px solid #e5e7eb',
   borderRadius: 12,
@@ -23,12 +21,12 @@ const partTitleStyle = {
 
 function OutputSection({ searchTerm }: { searchTerm: string }) {
   // Find the combined component by name (case-insensitive)
-  const combined = CombindedComponents.find(
-    (c: CombindedComponent) => c.name.toLowerCase() === searchTerm.toLowerCase()
+  const combined = CombinedComponents.find(
+    (c: CombinedComponent) => c.name.toLowerCase() === searchTerm.toLowerCase()
   );
 
   if (combined) {
-    const CombinedPreview = combined.combindedPreview;
+    const CombinedPreview = combined.combinedPreview;
     return (
       <div>
         <div style={sectionStyle}>
@@ -37,7 +35,7 @@ function OutputSection({ searchTerm }: { searchTerm: string }) {
         </div>
         <div style={sectionStyle}>
           <h3 style={{ fontSize: 18, fontWeight: 600, marginBottom: 10 }}>Combined Code</h3>
-          <CodeBlockWrapper code={combined.combindedCode} title={combined.name} />
+          <CodeBlockWrapper code={combined.combinedCode} title={combined.name} />
         </div>
         <div style={sectionStyle}>
           <h3 style={{ fontSize: 18, fontWeight: 600, marginBottom: 18 }}>Individual Parts</h3>

@@ -6,7 +6,6 @@ import SaveSnippetButton from "./CodeWrapperComponents/SaveSnippetButton";
 import DownloadSnippetButton from "./CodeWrapperComponents/DownloadSnippetButton";
 
 
-
 function CodeBlockWrapper ({code , title}: {code: string, title: string}){
   return (
     <div

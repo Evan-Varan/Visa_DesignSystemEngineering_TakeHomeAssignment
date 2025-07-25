@@ -1,148 +1,92 @@
 import React from "react";
 import { LoginFormCode } from "./VisaComponents/VisaCombinedComponentCode/VisaLoginForm";
-import { InputWithInitialValue, InputWithInitialValueCode } from "./VisaComponents/VisaIndividualComponents/InputWithInitialValue";
-import { InputWithMaskedField, InputWithMaskedFieldCode } from "./VisaComponents/VisaIndividualComponents/InputWithMaskedField";
-import { CheckBoxWithLabel, CheckBoxWithLabelCode } from "./VisaComponents/VisaIndividualComponents/CheckBoxWithLabel";
-import { SubmitButton, SubmitButtonCode } from "./VisaComponents/VisaIndividualComponents/SubmitButton";
+import { InitialValueInput, InitialValueInputCode } from "./VisaComponents/VisaIndividualComponents/InitialValueInput";
+import { MaskButtonInput, MaskButtonInputCode } from "./VisaComponents/VisaIndividualComponents/MaskButtonInput";
+import { DefaultCheckbox, DefaultCheckboxCode } from "./VisaComponents/VisaIndividualComponents/DefaultCheckbox";
+import { DefaultButton, DefaultButtonCode } from "./VisaComponents/VisaIndividualComponents/DefaultButton";
 import { SearchBarCode } from "./VisaComponents/VisaCombinedComponentCode/VisaSearchBar";
 import { NewsLetterCode } from "./VisaComponents/VisaCombinedComponentCode/VisaNewsLetter";
-import { PaymentCardFormCode} from "./VisaComponents/VisaCombinedComponentCode/VisaPaymentCardForm";
-import { LinkWithLabel, LinkWithLabelCode } from "./VisaComponents/VisaIndividualComponents/LinkWithLabel";
-import {TwoFactorAuthCode} from "./VisaComponents/VisaCombinedComponentCode/Visa2FAVerificationForm"
+import { PaymentCardFormCode } from "./VisaComponents/VisaCombinedComponentCode/VisaPaymentCardForm";
+import { DefaultLink, DefaultLinkCode } from "./VisaComponents/VisaIndividualComponents/DefaultLink";
+import { TwoFactorAuthCode } from "./VisaComponents/VisaCombinedComponentCode/Visa2FAVerificationForm";
+import TwoFactorAuth from "./VisaComponents/VisaCombinedComponentCode/Visa2FAVerificationForm";
+import  {SearchBar}  from "./VisaComponents/VisaCombinedComponentCode/VisaSearchBar";
+import  {NewsLetter}  from "./VisaComponents/VisaCombinedComponentCode/VisaNewsLetter";
+import  PaymentCardForm  from "./VisaComponents/VisaCombinedComponentCode/VisaPaymentCardForm";
+import  {LoginForm}  from "./VisaComponents/VisaCombinedComponentCode/VisaLoginForm";
 
 export type Component = {
-    name: string;
-    preview: React.FC;
-    code: string;
-}
+  name: string;
+  preview: React.FC;
+  code: string;
+};
 
-export type CombindedComponent = {
-name: string,
-    combindedPreview: React.FC,
-    combindedCode: string,
-    individualComponents: Component[]
-}
+export type CombinedComponent = {
+  name: string;
+  combinedPreview: React.FC;
+  combinedCode: string;
+  individualComponents: Component[];
+};
 
-export const CombindedComponents: CombindedComponent[] = [
-    //Login
-    {
-      name: "responsive login form with remember me",
-      combindedPreview: () => (
-        <form style={{ maxWidth: 340, margin: '0 auto', display: 'flex', flexDirection: 'column', gap: 18 }}>
-          <InputWithInitialValue text = "Username" placeholder="Enter your username"/>
-          <InputWithMaskedField />
-          <CheckBoxWithLabel text = "Remember Me" />
-          <div style={{ marginTop: 12 }}>
-            <SubmitButton text = "Login"/>
-          </div>
-        </form>
-      ),
-      combindedCode: LoginFormCode,
-      individualComponents: [
-        { name: "InputWithInitialValue", preview: () => <InputWithInitialValue text="Username" placeholder="Enter your username" />, code: InputWithInitialValueCode("Username", "Enter your username") },
-        { name: "InputWithMaskedField", preview: InputWithMaskedField, code: InputWithMaskedFieldCode },
-        { name: "CheckBoxWithRememberMe", preview: () => <CheckBoxWithLabel text = "Remember me"/>, code: CheckBoxWithLabelCode("Remember me") },
-        { name: "SubmitButton", preview: () => <SubmitButton text = "Login"/>, code: SubmitButtonCode("Login") }
-      ]
-    },
+export const CombinedComponents: CombinedComponent[] = [
+  // Login
+  {
+    name: "responsive login form with remember me",
+    combinedPreview: LoginForm,
+    combinedCode: LoginFormCode,
+    individualComponents: [
+      { name: "InitialValueInput", preview: () => InitialValueInput("Username", "Enter your username"), code: InitialValueInputCode("Username", "Enter your username") },
+      { name: "MaskButtonInput", preview: MaskButtonInput, code: MaskButtonInputCode },
+      { name: "CheckBoxWithRememberMe", preview: () => DefaultCheckbox("Remember me"), code: DefaultCheckboxCode("Remember me") },
+      { name: "DefaultButton", preview: () => DefaultButton("Login"), code: DefaultButtonCode("Login") }
+    ]
+  },
 
-    //Search Bar
-    {
-      name: "search bar",
-      combindedPreview: () => 
-    <div
-  style={{
-    display: "flex",
-    alignItems: "flex-end",
-    gap: "12px",
-    maxWidth: "500 px",
-    margin: "0 auto",
-    padding: "12px",
-    backgroundColor: "#fff",
-    border: "1px solid #ccc",
-    borderRadius: "8px",
-  }}
->
-  <div style={{ flex: 1 }}>
-    <InputWithInitialValue text="Search" placeholder="Enter your query" />
-  </div>
-  <div>
-    <SubmitButton text="Search" />
-  </div>
-</div>,
-      combindedCode: SearchBarCode,
-      individualComponents: [
-        { name: "InputWithInitialValue", preview: () => <InputWithInitialValue text="Search" placeholder="Enter your query"/>, code: InputWithInitialValueCode("Search", "Enter your query")  },
-        { name: "SubmitButton", preview: () => <SubmitButton text = "Search"/>, code: SubmitButtonCode("Search") }
-      ]
-    },
-    //News Letter
-    {
-      name: "news letter",
-      combindedPreview: () => 
-        <form
-      style={{
-        maxWidth: 340,
-        margin: '0 auto',
-        display: 'flex',
-        flexDirection: 'column',
-        gap: 12, 
-        padding: '20px',
-        border: '1px solid #ddd',
-        borderRadius: '8px',
-        backgroundColor: '#fff',
-      }}
-    >
-      <InputWithInitialValue text = "Email"/>
-      <CheckBoxWithLabel text = "Subscribe to our newsletter" />
-      <div style={{ marginTop: 12 }}>
-        <SubmitButton text = "Subscribe"/>
-      </div>
-    </form>,
-      combindedCode: NewsLetterCode,
-      individualComponents: [
-        { name: "InputWithInitialValue", preview: () => <InputWithInitialValue text="Email" />, code: InputWithInitialValueCode("Email", "Enter email")},
-        { name: "CheckBoxWithRememberMe", preview: () => <CheckBoxWithLabel text = "Subscribe to our news letter"/>, code: CheckBoxWithLabelCode("Subscribe to our news letter") },
-        { name: "SubmitButton", preview: () => <SubmitButton text = "Subscribe"/>, code: SubmitButtonCode("Subscribe") }
-      ]
-    },
-    //Payment Card Form
-    {
-        name: "payment card form",
-      combindedPreview: () => 
-      <form style={{ maxWidth: 340, margin: '0 auto', display: 'flex', flexDirection: 'column', gap: 18 }}>
-      <InputWithInitialValue text = "Card Number" placeholder = "XXXX XXXX XXXX XXXX"/>
-      <InputWithInitialValue text = "Expiration Date" placeholder = "MM/YY" />
-      <InputWithMaskedField />
-      <CheckBoxWithLabel text = "Save this card for future payments" />
-      <div style={{ marginTop: 12 }}>
-        <SubmitButton text = "Pay now"/>
-      </div>
-    </form>,
-      combindedCode: PaymentCardFormCode,
-      individualComponents: [
-        { name: "InputWithInitialValue", preview: () => <InputWithInitialValue text="Card number" />, code: InputWithInitialValueCode("Card Number", "XXXX XXXX XXXX XXXX")  },
-        { name: "CheckBoxWithRememberMe", preview: () => <CheckBoxWithLabel text = "Save payment data"/>, code: CheckBoxWithLabelCode("Save payment data") },
-        { name: "SubmitButton", preview: () => <SubmitButton text = "Pay Now"/>, code: SubmitButtonCode("Pay Now") }
-      ]
-    },
-    //2FA Verification Form
-    {
-        name: "2FA verification form",
-      combindedPreview: () => 
-      <form style={{ maxWidth: 340, margin: '0 auto', display: 'flex', flexDirection: 'column', gap: 18 }}>
-      <InputWithInitialValue text = "Enter OTP" placeholder = "XXXXXX" />
-      <LinkWithLabel text = "Resend OTP"/>
-      <div style={{ marginTop: 12 }}>
-        <SubmitButton text = "Verify"/>
-      </div>
-    </form>,
-      combindedCode: TwoFactorAuthCode,
-      individualComponents: [
-        { name: "InputWithInitialValue", preview: () => <InputWithInitialValue text="Enter OTP" />, code: InputWithInitialValueCode("Enter OTP", "XXXXXX")  },
-        { name: "LinkWithLabel", preview: () => <LinkWithLabel text = "Resend OTP"/>, code: LinkWithLabelCode("Resend OTP") },
-        { name: "SubmitButton", preview: () => <SubmitButton text = "Verify"/>, code: SubmitButtonCode("Verify") }
-      ]
-    },
-  ];
+  // Search Bar
+  {
+    name: "search bar",
+    combinedPreview: SearchBar,
+    combinedCode: SearchBarCode,
+    individualComponents: [
+      { name: "InitialValueInput", preview: () => InitialValueInput("Search", "Enter your query"), code: InitialValueInputCode("Search", "Enter your query") },
+      { name: "DefaultButton", preview: () => DefaultButton("Search"), code: DefaultButtonCode("Search") }
+    ]
+  },
+
+  // News Letter
+  {
+    name: "news letter",
+    combinedPreview: NewsLetter,
+    combinedCode: NewsLetterCode,
+    individualComponents: [
+      { name: "InitialValueInput", preview: () => InitialValueInput("Email"), code: InitialValueInputCode("Email", "Enter email") },
+      { name: "CheckBoxWithRememberMe", preview: () => DefaultCheckbox("Subscribe to our newsletter"), code: DefaultCheckboxCode("Subscribe to our newsletter") },
+      { name: "DefaultButton", preview: () => DefaultButton("Subscribe"), code: DefaultButtonCode("Subscribe") }
+    ]
+  },
+
+  // Payment Card Form
+  {
+    name: "payment card form",
+    combinedPreview: PaymentCardForm,
+    combinedCode: PaymentCardFormCode,
+    individualComponents: [
+      { name: "InitialValueInput", preview: () => InitialValueInput("Card number"), code: InitialValueInputCode("Card Number", "XXXX XXXX XXXX XXXX") },
+      { name: "CheckBoxWithRememberMe", preview: () => DefaultCheckbox("Save payment data"), code: DefaultCheckboxCode("Save payment data") },
+      { name: "DefaultButton", preview: () => DefaultButton("Pay Now"), code: DefaultButtonCode("Pay Now") }
+    ]
+  },
+
+  // 2FA Verification Form
+  {
+    name: "2FA verification form",
+    combinedPreview: TwoFactorAuth,
+    combinedCode: TwoFactorAuthCode,
+    individualComponents: [
+      { name: "InitialValueInput", preview: () => InitialValueInput("Enter OTP"), code: InitialValueInputCode("Enter OTP", "XXXXXX") },
+      { name: "DefaultLink", preview: DefaultLink, code: DefaultLinkCode("Resend OTP") },
+      { name: "DefaultButton", preview: () => DefaultButton("Verify"), code: DefaultButtonCode("Verify") }
+    ]
+  },
+];
   

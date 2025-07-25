@@ -1,0 +1,30 @@
+/* Import Visa Nova core first (required for CSS variables) */
+@import "@visa/nova-styles/base/core.css";
+
+/* Import Visa Nova typography (required for fonts) */
+@import "@visa/nova-styles/base/typography/index.css";
+
+/* Import Visa Nova theme first (required for CSS variables) */
+@import "@visa/nova-styles/themes/default/index.css";
+
+/* Import all Visa Nova styles */
+@import "@visa/nova-styles/styles.css";
+
+/* Ensure proper font loading for Visa Nova Design System */
+/* The Visa Nova Design System should automatically load its fonts */
+
+/* Load Visa fonts - these should match the official website */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Set Visa Nova font variables */
+/* :root {
+  --typography-button-medium-font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  --typography-button-large-font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  --typography-button-small-font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  --typography-button-medium-font-weight: 600;
+  --typography-button-large-font-weight: 600;
+  --typography-button-small-font-weight: 600;
+} */
+
+/* Let Visa Nova handle its own font variables and styling */
+/* The design system should include its own font definitions */

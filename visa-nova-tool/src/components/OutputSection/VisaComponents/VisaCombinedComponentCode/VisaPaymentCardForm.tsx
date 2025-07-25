@@ -1,3 +1,58 @@
+import { VisaPasswordHideTiny, VisaPasswordShowTiny } from '@visa/nova-icons-react';
+import { Button, Input, InputContainer, Label, Utility, Checkbox, InputMessage } from '@visa/nova-react';
+import { useState } from 'react';
+
+// TIP: Customize these IDs, pass them as props, or auto-generate them with useId() from @react
+
+
+const CombinedForm = () => {
+  const firstInputId = 'input-first';
+  const secondInputId = 'input-second';
+  const checkboxId = 'checkbox-remember';
+
+  return (
+    <form style={{ maxWidth: 400, margin: '0 auto' }}>
+      <Utility vFlex vFlexCol vGap={16}>
+        {/* First Input */}
+        <Utility vFlex vFlexCol vGap={4}>
+          <Label htmlFor={firstInputId}>First Input</Label>
+          <InputContainer>
+            <Input
+              aria-required="true"
+              placeholder="Enter first value"
+              id={firstInputId}
+              type="text"
+            />
+          </InputContainer>
+        </Utility>
+
+        {/* Second Input */}
+        <Utility vFlex vFlexCol vGap={4}>
+          <Label htmlFor={secondInputId}>Second Input</Label>
+          <InputContainer>
+            <Input
+              aria-required="true"
+              placeholder="Enter second value"
+              id={secondInputId}
+              type="text"
+            />
+          </InputContainer>
+        </Utility>
+
+        {/* Checkbox */}
+        <Utility vFlex vGap={8}>
+          <Checkbox id={checkboxId} />
+          <Label htmlFor={checkboxId}>Remember Me</Label>
+        </Utility>
+
+        {/* Submit Button */}
+        <Button>Submit</Button>
+      </Utility>
+    </form>
+  );
+};
+
+export default CombinedForm;
 
 
 export const PaymentCardFormCode = `import { VisaPasswordHideTiny, VisaPasswordShowTiny } from '@visa/nova-icons-react';
