@@ -1,11 +1,11 @@
 import { Link } from '@visa/nova-react';
 
 export const DefaultLink = () => {
-  return <Link href="./link">Destination label</Link>;
+  return <Link href="./link">Resend OTP?</Link>;
 };
 
-export const DefaultLinkCode = (text:string) : string => `
+export const DefaultLinkCode = `
 import { Link } from '@visa/nova-react';
 export const DefaultLink = () => {
-  return <Link href="./link">Destination label</Link>;
+  return <Link href="./link">Resend OTP?</Link>;
 };`.trim()

@@ -5,19 +5,7 @@ const checkboxId = 'newsletter-checkbox';
 
 export const NewsLetter = () => {
   return (
-    <Utility
-      vFlex
-      vFlexCol
-      vGap={4}
-      style={{
-        maxWidth: '340px',
-        margin: '0 auto',
-        padding: '16px',
-        backgroundColor: '#fff',
-        border: '1px solid #ccc',
-        borderRadius: '8px',
-      }}
-    >
+    <Utility vFlex vFlexCol vGap={16} style={{maxWidth: '340px', margin: '0 auto', padding: '16px', backgroundColor: '#fff', border: '1px solid #ccc', borderRadius: '8px'}}>
       {/* Email Input */}
       <Utility vFlex vFlexCol vGap={2}>
         <Label htmlFor={inputId}>Email</Label>
@@ -27,7 +15,14 @@ export const NewsLetter = () => {
       </Utility>
 
       {/* Checkbox */}
-      <Checkbox id={checkboxId} label = "Subscribe to our newsletter"></Checkbox>
+      <fieldset aria-labelledby={`${checkboxId}-message`}>
+      <Utility vFlex vGap={2}>
+        <Checkbox id={checkboxId} />
+        <Utility vFlex vFlexCol vGap={2} vMarginVertical={10}>
+          <Label htmlFor={checkboxId}>Subscribe to our newsletter</Label>
+        </Utility>
+      </Utility>
+    </fieldset>
 
       {/* Button */}
       <Button style={{ width: '100%' }}>
@@ -44,21 +39,9 @@ import { Input, InputContainer, Label, Utility, Checkbox, Button } from '@visa/n
 const inputId = 'newsletter-email';
 const checkboxId = 'newsletter-checkbox';
 
-export const NewsletterForm = () => {
+export const NewsLetter = () => {
   return (
-    <Utility
-      vFlex
-      vFlexCol
-      vGap={4}
-      style={{
-        maxWidth: '340px',
-        margin: '0 auto',
-        padding: '16px',
-        backgroundColor: '#fff',
-        border: '1px solid #ccc',
-        borderRadius: '8px',
-      }}
-    >
+    <Utility vFlex vFlexCol vGap={16} style={{maxWidth: '340px', margin: '0 auto', padding: '16px', backgroundColor: '#fff', border: '1px solid #ccc', borderRadius: '8px'}}>
       {/* Email Input */}
       <Utility vFlex vFlexCol vGap={2}>
         <Label htmlFor={inputId}>Email</Label>
@@ -68,10 +51,17 @@ export const NewsletterForm = () => {
       </Utility>
 
       {/* Checkbox */}
-      <Checkbox id={checkboxId}>Subscribe to our newsletter</Checkbox>
+      <fieldset aria-labelledby={\`\${checkboxId}-message\`}>
+      <Utility vFlex vGap={2}>
+        <Checkbox id={checkboxId} />
+        <Utility vFlex vFlexCol vGap={2} vMarginVertical={10}>
+          <Label htmlFor={checkboxId}>Subscribe to our newsletter</Label>
+        </Utility>
+      </Utility>
+    </fieldset>
 
       {/* Button */}
-      <Button colorScheme="primary" style={{ width: '100%' }}>
+      <Button style={{ width: '100%' }}>
         Subscribe
       </Button>
     </Utility>

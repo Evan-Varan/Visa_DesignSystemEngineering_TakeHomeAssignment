@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { FiSave } from "react-icons/fi";
-
+import { VisaSaveTiny } from "@visa/nova-icons-react";
+import { Button } from "@visa/nova-react";
 
 function SaveSnippetButton({snippet , title}: {snippet: string, title: string}) {
   const [isSaved, setIsSaved] = useState(false);
@@ -12,31 +12,29 @@ function SaveSnippetButton({snippet , title}: {snippet: string, title: string}) 
     savedSnippets.push({ title, code: snippet });
 
     // Save back to localStorage
-    localStorage.setItem('savedSnippets', JSON.stringify(savedSnippets));
+    localStorage.setItem('savedSnippets', JSON.stringify(savedSnippets)); 
 
     setIsSaved(true);
     setTimeout(() => setIsSaved(false), 2000);
   };
 
   return (
-    <button 
-    style={{
-        display: "flex",
-        alignItems: "center",
-        gap: " 6px",
+    <Button 
+      buttonSize="small"
+      style={{
         background: "#2d2d2d",
-        color: "#fff",
+        color: "#ffffff",
         border: "1px solid #444",
         borderRadius: "6px",
-        padding: "6px 10px",
-        cursor: "pointer",
-        fontSize: "14px",
       }}
       onClick={handleSaveSnippet}
     >
-    <FiSave size={16} />
-    {isSaved ? "Saved!" : "Save Snippet"}
-    </button>
+      <VisaSaveTiny style={{ 
+        color: '#ffffff', 
+        filter: 'brightness(0) invert(1)' //AI suggested fix to change the color of the icon to white
+      }} />
+      {isSaved ? "Saved!" : "Save Snippet"}
+    </Button>
   );
 }
 

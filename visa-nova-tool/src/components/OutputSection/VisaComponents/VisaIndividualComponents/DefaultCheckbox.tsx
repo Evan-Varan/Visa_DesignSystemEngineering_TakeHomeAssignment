@@ -25,9 +25,6 @@ export const InlineMessageCheckbox = () => {
         <Checkbox id={id} />
         <Utility vFlex vFlexCol vGap={2} vMarginVertical={10}>
           <Label htmlFor={id}>${labelText}</Label>
-          <InputMessage id={\`\${id}-message\`}>
-            Optional descriptive text here.
-          </InputMessage>
         </Utility>
       </Utility>
     </fieldset>

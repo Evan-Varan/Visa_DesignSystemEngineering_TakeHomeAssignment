@@ -5,21 +5,23 @@ import { useState } from 'react';
 // TIP: Customize these IDs, pass them as props, or auto-generate them with useId() from @react
 
 
-const CombinedForm = () => {
+export const PaymentCardForm = () => {
   const firstInputId = 'input-first';
   const secondInputId = 'input-second';
+  const passwordInputId = 'input-mask-button';
   const checkboxId = 'checkbox-remember';
+  const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <form style={{ maxWidth: 400, margin: '0 auto' }}>
+    <form style={{maxWidth: '340px', margin: '0 auto', padding: '16px', backgroundColor: '#fff', border: '1px solid #ccc', borderRadius: '8px'}}>
       <Utility vFlex vFlexCol vGap={16}>
         {/* First Input */}
         <Utility vFlex vFlexCol vGap={4}>
-          <Label htmlFor={firstInputId}>First Input</Label>
+          <Label htmlFor={firstInputId}>Card Number</Label>
           <InputContainer>
             <Input
               aria-required="true"
-              placeholder="Enter first value"
+              placeholder="XXXX XXXX XXXX XXXX"
               id={firstInputId}
               type="text"
             />
@@ -28,21 +30,43 @@ const CombinedForm = () => {
 
         {/* Second Input */}
         <Utility vFlex vFlexCol vGap={4}>
-          <Label htmlFor={secondInputId}>Second Input</Label>
+          <Label htmlFor={secondInputId}>Expiration Date</Label>
           <InputContainer>
             <Input
               aria-required="true"
-              placeholder="Enter second value"
+              placeholder="MM/YY"
               id={secondInputId}
               type="text"
             />
           </InputContainer>
         </Utility>
 
+        {/* CVC Input */}
+        <Utility vFlex vFlexCol vGap={4}>
+        <Label htmlFor={passwordInputId}>CVC</Label>
+        <InputContainer>
+          <Input
+            aria-required="true"
+            id={passwordInputId}
+            type={showPassword ? 'text' : 'password'}
+            defaultValue="***"
+          />
+          <Button
+            aria-label={showPassword ? 'hide text' : 'show text'}
+            buttonSize="small"
+            colorScheme="tertiary"
+            iconButton
+            onClick={() => setShowPassword(!showPassword)}
+          >
+            {showPassword ? <VisaPasswordHideTiny /> : <VisaPasswordShowTiny />}
+          </Button>
+        </InputContainer>
+      </Utility>
+
         {/* Checkbox */}
         <Utility vFlex vGap={8}>
           <Checkbox id={checkboxId} />
-          <Label htmlFor={checkboxId}>Remember Me</Label>
+          <Label htmlFor={checkboxId}>Save this card for future payments</Label>
         </Utility>
 
         {/* Submit Button */}
@@ -52,89 +76,82 @@ const CombinedForm = () => {
   );
 };
 
-export default CombinedForm;
-
 
 export const PaymentCardFormCode = `import { VisaPasswordHideTiny, VisaPasswordShowTiny } from '@visa/nova-icons-react';
 import { Button, Input, InputContainer, Label, Utility, Checkbox, InputMessage } from '@visa/nova-react';
 import { useState } from 'react';
 
 // TIP: Customize these IDs, pass them as props, or auto-generate them with useId() from @react
-const cardNumberId = 'card-number';
-const expiryId = 'expiry-date';
-const cvvId = 'card-cvv';
-const saveCardId = 'save-card';
 
-export const PaymentCardForm = () => {
-  const [showCVV, setShowCVV] = useState(false);
+
+export const CombinedForm = () => {
+  const firstInputId = 'input-first';
+  const secondInputId = 'input-second';
+  const passwordInputId = 'input-mask-button';
+  const checkboxId = 'checkbox-remember';
+  const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <Utility vFlex vFlexCol vGap={6}>
-      {/* Card Number Input */}
-      <Utility vFlex vFlexCol vGap={4}>
-        <Label htmlFor={cardNumberId}>Card Number</Label>
-        <InputContainer>
-          <Input
-            aria-required="true"
-            placeholder="XXXX XXXX XXXX XXXX"
-            id={cardNumberId}
-            type="text"
-          />
-        </InputContainer>
-      </Utility>
+    <form style={{maxWidth: '340px', margin: '0 auto', padding: '16px', backgroundColor: '#fff', border: '1px solid #ccc', borderRadius: '8px'}}>
+      <Utility vFlex vFlexCol vGap={16}>
+        {/* First Input */}
+        <Utility vFlex vFlexCol vGap={4}>
+          <Label htmlFor={firstInputId}>Card Number</Label>
+          <InputContainer>
+            <Input
+              aria-required="true"
+              placeholder="XXXX XXXX XXXX XXXX"
+              id={firstInputId}
+              type="text"
+            />
+          </InputContainer>
+        </Utility>
 
-      {/* Expiry Date Input */}
-      <Utility vFlex vFlexCol vGap={4}>
-        <Label htmlFor={expiryId}>Expiry Date</Label>
-        <InputContainer>
-          <Input
-            aria-required="true"
-            placeholder="MM/YY"
-            id={expiryId}
-            type="text"
-          />
-        </InputContainer>
-      </Utility>
+        {/* Second Input */}
+        <Utility vFlex vFlexCol vGap={4}>
+          <Label htmlFor={secondInputId}>Expiration Date</Label>
+          <InputContainer>
+            <Input
+              aria-required="true"
+              placeholder="MM/YY"
+              id={secondInputId}
+              type="text"
+            />
+          </InputContainer>
+        </Utility>
 
-      {/* CVV Input with Toggle */}
-      <Utility vFlex vFlexCol vGap={4}>
-        <Label htmlFor={cvvId}>CVV</Label>
+        {/* CVC Input */}
+        <Utility vFlex vFlexCol vGap={4}>
+        <Label htmlFor={passwordInputId}>CVC</Label>
         <InputContainer>
           <Input
             aria-required="true"
-            placeholder="***"
-            id={cvvId}
-            type={showCVV ? 'text' : 'password'}
+            id={passwordInputId}
+            type={showPassword ? 'text' : 'password'}
+            defaultValue="***"
           />
           <Button
-            aria-label={showCVV ? 'hide CVV' : 'show CVV'}
+            aria-label={showPassword ? 'hide text' : 'show text'}
             buttonSize="small"
             colorScheme="tertiary"
             iconButton
-            onClick={() => setShowCVV(!showCVV)}
+            onClick={() => setShowPassword(!showPassword)}
           >
-            {showCVV ? <VisaPasswordHideTiny /> : <VisaPasswordShowTiny />}
+            {showPassword ? <VisaPasswordHideTiny /> : <VisaPasswordShowTiny />}
           </Button>
         </InputContainer>
       </Utility>
 
-      {/* Save Card Checkbox */}
-      <fieldset aria-labelledby={\`\${saveCardId}-message\`}>
-        <Utility vFlex vGap={2}>
-          <Checkbox id={saveCardId} />
-          <Utility vFlex vFlexCol vGap={2} vMarginVertical={10}>
-            <Label htmlFor={saveCardId}>Save this card for future payments</Label>
-            <InputMessage id={\`\${saveCardId}-message\`}>
-              We'll keep this information securely for faster checkout next time.
-            </InputMessage>
-          </Utility>
+        {/* Checkbox */}
+        <Utility vFlex vGap={8}>
+          <Checkbox id={checkboxId} />
+          <Label htmlFor={checkboxId}>Save this card for future payments</Label>
         </Utility>
-      </fieldset>
 
-      {/* Submit Button */}
-      <Button variant="primary">Pay Now</Button>
-    </Utility>
+        {/* Submit Button */}
+        <Button>Submit</Button>
+      </Utility>
+    </form>
   );
-};
-`.trim();
+};`.trim();
 

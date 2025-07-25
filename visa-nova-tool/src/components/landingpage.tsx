@@ -34,7 +34,14 @@ const LandingPage: React.FC = () => {
             <Typography variant="headline-2" colorScheme="subtle">Search, preview, and copy Visa Nova components for faster and consistent UI development.</Typography>
             <div style={{ display: 'flex', gap: 8 }} className="v-hide-mobile">
               <Button buttonSize="large" onClick={() => navigate('/build')}>Try It Now</Button>
-              <Button buttonSize="large" colorScheme="secondary" onClick={() => { localStorage.setItem('hasSeenTour', 'false'); navigate('/build'); }}>View Tutorial</Button>
+              <Button buttonSize="large" colorScheme="secondary" onClick={() => { 
+                localStorage.setItem('showTutorial', 'true'); 
+                // Dispatch custom event for same-tab communication
+                window.dispatchEvent(new CustomEvent('localStorageChange', {
+                  detail: { key: 'showTutorial', value: 'true' }
+                }));
+                navigate('/build'); 
+              }}>View Tutorial</Button>
             </div>
           </div>
         </UtilityFragment>

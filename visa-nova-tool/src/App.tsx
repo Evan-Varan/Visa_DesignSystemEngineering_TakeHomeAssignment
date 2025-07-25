@@ -3,8 +3,8 @@ import './App.css'
 import LandingPage from './components/Landingpage'
 import BuildPage from './components/BuildPage'
 import Tutorial from './components/Tutorial'
-import SavedSnippets from './components/SavedSnippets'
-import { DefaultButton } from './components/TestComponents'
+import SavedSnippets from './components/SavedSnippetsPage'
+
 
 
 

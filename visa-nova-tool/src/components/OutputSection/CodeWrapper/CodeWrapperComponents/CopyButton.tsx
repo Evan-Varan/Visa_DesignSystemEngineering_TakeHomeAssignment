@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { FiCopy } from "react-icons/fi"; // Feather Icons - clean & professional
+import { VisaCopyTiny } from "@visa/nova-icons-react";
+import { Button } from "@visa/nova-react";
 
 function CopyButton({ text }: {text: string}) {
-
   const [copied, setCopied] = useState(false);
 
   const handleCopy = () => {
@@ -12,24 +12,22 @@ function CopyButton({ text }: {text: string}) {
   };
 
   return (
-    <button
+    <Button
       onClick={handleCopy}
+      buttonSize="small"
       style={{
-        display: "flex",
-        alignItems: "center",
-        gap: "6px",
         background: "#2d2d2d",
         color: "#fff",
         border: "1px solid #444",
         borderRadius: "6px",
-        padding: "6px 10px",
-        cursor: "pointer",
-        fontSize: "14px",
       }}
     >
-      <FiCopy size={16} />
+      <VisaCopyTiny style={{ 
+        color: '#ffffff', 
+        filter: 'brightness(0) invert(1)' //AI suggested fix to change the color of the icon to white
+      }} />
       {copied ? "Copied!" : "Copy"}
-    </button>
+    </Button>
   );
 }
 

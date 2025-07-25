@@ -12,51 +12,53 @@ export const LoginForm = () => {
 
   return (
     <form>
-      {/* Username Input */}
-      <Utility vFlex vFlexCol vGap={4}>
-        <Label htmlFor={textInputId}>Username</Label>
-        <InputContainer>
-          <Input
-            aria-required="true"
-            id={textInputId}
-            type="text"
-            placeholder="Enter your username"
-          />
-        </InputContainer>
-      </Utility>
-
-      {/* Password Input with Mask Button */}
-      <Utility vFlex vFlexCol vGap={4}>
-        <Label htmlFor={passwordInputId}>Password</Label>
-        <InputContainer>
-          <Input
-            aria-required="true"
-            id={passwordInputId}
-            type={showPassword ? 'text' : 'password'}
-            defaultValue="password"
-          />
-          <Button
-            aria-label={showPassword ? 'hide text' : 'show text'}
-            buttonSize="small"
-            colorScheme="tertiary"
-            iconButton
-            onClick={() => setShowPassword(!showPassword)}
-          >
-            {showPassword ? <VisaPasswordHideTiny /> : <VisaPasswordShowTiny />}
-          </Button>
-        </InputContainer>
-      </Utility>
-
-      {/* Remember Me Checkbox */}
-      <fieldset>
-        <Utility vFlex vGap={2}>
-          <Checkbox id={checkboxId} />
-          <Label htmlFor={checkboxId}>Remember Me</Label>
+      <Utility vFlex vFlexCol vGap={16} style={{maxWidth: '340px', margin: '0 auto', padding: '16px', backgroundColor: '#fff', border: '1px solid #ccc', borderRadius: '8px'}}>
+        {/* Username Input */}
+        <Utility vFlex vFlexCol vGap={4}>
+          <Label htmlFor={textInputId}>Username</Label>
+          <InputContainer>
+            <Input
+              aria-required="true"
+              id={textInputId}
+              type="text"
+              placeholder="Enter your username"
+            />
+          </InputContainer>
         </Utility>
-      </fieldset>
 
-      {/* Primary Action Button */}
-      <Button>Login</Button>
+        {/* Password Input with Mask Button */}
+        <Utility vFlex vFlexCol vGap={4}>
+          <Label htmlFor={passwordInputId}>Password</Label>
+          <InputContainer>
+            <Input
+              aria-required="true"
+              id={passwordInputId}
+              type={showPassword ? 'text' : 'password'}
+              defaultValue="Enter your password"
+            />
+            <Button
+              aria-label={showPassword ? 'hide text' : 'show text'}
+              buttonSize="small"
+              colorScheme="tertiary"
+              iconButton
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? <VisaPasswordHideTiny /> : <VisaPasswordShowTiny />}
+            </Button>
+          </InputContainer>
+        </Utility>
+
+        {/* Remember Me Checkbox */}
+        <fieldset>
+          <Utility vFlex vGap={2}>
+            <Checkbox id={checkboxId} />
+            <Label htmlFor={checkboxId}>Remember Me</Label>
+          </Utility>
+        </fieldset>
+
+        {/* Primary Action Button */}
+        <Button>Login</Button>
+      </Utility>
     </form>
   );
 };
@@ -70,56 +72,58 @@ const textInputId = 'input-initial-value';
 const passwordInputId = 'input-mask-button';
 const checkboxId = 'inline-message-checkbox';
 
-export const CombinedLoginForm = () => {
+export const LoginForm = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
     <form>
-      {/* Username Input */}
-      <Utility vFlex vFlexCol vGap={4}>
-        <Label htmlFor={textInputId}>Username</Label>
-        <InputContainer>
-          <Input
-            aria-required="true"
-            id={textInputId}
-            type="text"
-            placeholder="Enter your username"
-          />
-        </InputContainer>
-      </Utility>
-
-      {/* Password Input with Mask Button */}
-      <Utility vFlex vFlexCol vGap={4}>
-        <Label htmlFor={passwordInputId}>Password</Label>
-        <InputContainer>
-          <Input
-            aria-required="true"
-            id={passwordInputId}
-            type={showPassword ? 'text' : 'password'}
-            defaultValue="password"
-          />
-          <Button
-            aria-label={showPassword ? 'hide text' : 'show text'}
-            buttonSize="small"
-            colorScheme="tertiary"
-            iconButton
-            onClick={() => setShowPassword(!showPassword)}
-          >
-            {showPassword ? <VisaPasswordHideTiny /> : <VisaPasswordShowTiny />}
-          </Button>
-        </InputContainer>
-      </Utility>
-
-      {/* Remember Me Checkbox */}
-      <fieldset>
-        <Utility vFlex vGap={2}>
-          <Checkbox id={checkboxId} />
-          <Label htmlFor={checkboxId}>Remember Me</Label>
+      <Utility vFlex vFlexCol vGap={16} style={{maxWidth: '340px', margin: '0 auto', padding: '16px', backgroundColor: '#fff', border: '1px solid #ccc', borderRadius: '8px'}}>
+        {/* Username Input */}
+        <Utility vFlex vFlexCol vGap={4}>
+          <Label htmlFor={textInputId}>Username</Label>
+          <InputContainer>
+            <Input
+              aria-required="true"
+              id={textInputId}
+              type="text"
+              placeholder="Enter your username"
+            />
+          </InputContainer>
         </Utility>
-      </fieldset>
 
-      {/* Primary Action Button */}
-      <Button colorScheme="primary">Login</Button>
+        {/* Password Input with Mask Button */}
+        <Utility vFlex vFlexCol vGap={4}>
+          <Label htmlFor={passwordInputId}>Password</Label>
+          <InputContainer>
+            <Input
+              aria-required="true"
+              id={passwordInputId}
+              type={showPassword ? 'text' : 'password'}
+              defaultValue="Enter your password"
+            />
+            <Button
+              aria-label={showPassword ? 'hide text' : 'show text'}
+              buttonSize="small"
+              colorScheme="tertiary"
+              iconButton
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? <VisaPasswordHideTiny /> : <VisaPasswordShowTiny />}
+            </Button>
+          </InputContainer>
+        </Utility>
+
+        {/* Remember Me Checkbox */}
+        <fieldset>
+          <Utility vFlex vGap={2}>
+            <Checkbox id={checkboxId} />
+            <Label htmlFor={checkboxId}>Remember Me</Label>
+          </Utility>
+        </fieldset>
+
+        {/* Primary Action Button */}
+        <Button>Login</Button>
+      </Utility>
     </form>
   );
 };`.trim()

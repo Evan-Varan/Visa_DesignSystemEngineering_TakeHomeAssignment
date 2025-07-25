@@ -1,21 +1,22 @@
-import React from "react";
-import OutputSection from "./OutputSection/OuputSection";
-import { Footer, Typography } from '@visa/nova-react';
-import InputSection from "./InputSection/InputSection";
+import React, { useState } from "react";
+import AgentChatInterface from "./InputSection/MockAIAgent/AgentChatInterface";
+import OutputSection from "./OutputSection/OutputSection";
 import { NavBar } from "./Navbar";
 import Tutorial from "./Tutorial";
+import { DefaultFooter } from "./OutputSection/VisaComponents/VisaIndividualComponents/Footer";
 
 const BuildPage: React.FC = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+
   return (
     <div>
       <NavBar />
       <Tutorial />
-      <InputSection />
-      <Footer style={{ marginTop: 40, textAlign: 'center' }}>
-        <Typography variant="body-2" colorScheme="subtle">
-          © 2025 Visa Inc. All rights reserved.
-        </Typography>
-      </Footer>
+      <div style={{ display: "flex", height: "calc(100vh - 200px)", gap: "24px", padding: "20px", maxWidth: "1400px", margin: "0 auto", position: "relative"}}>
+        <AgentChatInterface setSearchTerm={setSearchTerm} />
+        <OutputSection searchTerm={searchTerm} />
+      </div>
+      <DefaultFooter />
     </div>
   );
 };
