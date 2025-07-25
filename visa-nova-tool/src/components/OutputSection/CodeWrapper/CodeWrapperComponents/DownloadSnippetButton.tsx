@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { FiDownload} from "react-icons/fi";
-
+import { VisaFileDownloadTiny } from "@visa/nova-icons-react";
+import { Button } from "@visa/nova-react";
 
 function DownloadSnippetButton({snippet , title}: {snippet: string, title: string}) {
   const [isDownloaded, setIsDownloaded] = useState(false);
@@ -19,24 +19,22 @@ function DownloadSnippetButton({snippet , title}: {snippet: string, title: strin
   };
 
   return (
-    <button 
-    style={{
-        display: "flex",
-        alignItems: "center",
-        gap: " 6px",
+    <Button 
+      buttonSize="small"
+      style={{
         background: "#2d2d2d",
         color: "#fff",
         border: "1px solid #444",
         borderRadius: "6px",
-        padding: "6px 10px",
-        cursor: "pointer",
-        fontSize: "14px",
       }}
       onClick={() => handleDownloadSnippet(snippet, `${title}.tsx`)}
     >
-    <FiDownload size={16} />
-    {isDownloaded ? "Downloaded" : "Download Snippet"}
-    </button>
+      <VisaFileDownloadTiny style={{ 
+        color: '#ffffff', 
+        filter: 'brightness(0) invert(1)' //AI suggested fix to change the color of the icon to white
+      }} />
+      {isDownloaded ? "Downloaded" : "Download Snippet"}
+    </Button>
   );
 }
 

@@ -61,7 +61,7 @@ const label3SubItems = [
     href: './horizontal-navigation',
   },
   {
-    tabLabel: 'Github',
+    tabLabel: 'Documentation',
     id: `${id}-label-3-sub-item-1`,
     href: './horizontal-navigation',
   },
@@ -186,6 +186,14 @@ export const NavBar = () => {
                     />
                   </Tab>
                   <Tab>
+                    <Button
+                      aria-current={location.pathname === '/savedsnippets' ? 'page' : undefined}
+                      buttonSize="large"
+                      colorScheme="tertiary"
+                      element={<RouterLink to="/savedsnippets">Saved Snippets</RouterLink>}
+                    />
+                  </Tab>
+                  <Tab>
                     <DropdownButton
                       aria-expanded={label3Open}
                       aria-controls={label3Open ? `${id}-label-dropdown-menu` : undefined}
@@ -218,37 +226,41 @@ export const NavBar = () => {
                           ref={label3FloatingRefs.setFloating}
                           {...getLabel3FloatingProps()}
                         >
-                          <Listbox>
-                            <li key={label3SubItems[0].id}>
-                              <UtilityFragment vPaddingVertical={4} vPaddingHorizontal={8}>
-                                <Button
-                                  colorScheme="tertiary"
-                                  onClick={() => {
-                                    localStorage.setItem('hasSeenTour', 'false');
-                                    navigate('/build');
-                                  }}
-                                >
-                                  Tutorial
-                                </Button>
-                              </UtilityFragment>
-                            </li>
-                            <li key={label3SubItems[1].id}>
-                              <UtilityFragment vPaddingVertical={4} vPaddingHorizontal={8}>
-                                <Button
-                                  colorScheme="tertiary"
-                                  element={
-                                    <a
-                                      href="https://github.com/Evan-Varan/Visa_DesignSystemEngineering_TakeHomeAssignment"
-                                      target="_blank"
-                                      rel="noopener noreferrer"
-                                    >
-                                      Github
-                                    </a>
-                                  }
-                                />
-                              </UtilityFragment>
-                            </li>
-                          </Listbox>
+                                                     <Listbox>
+                             <li key={label3SubItems[0].id}>
+                               <UtilityFragment vPaddingVertical={4} vPaddingHorizontal={8}>
+                                                                   <Button
+                                    colorScheme="tertiary"
+                                    onClick={() => {
+                                      localStorage.setItem('showTutorial', 'true');
+                                      // Dispatch custom event for same-tab communication
+                                      window.dispatchEvent(new CustomEvent('localStorageChange', {
+                                        detail: { key: 'showTutorial', value: 'true' }
+                                      }));
+                                      navigate('/build');
+                                    }}
+                                  >
+                                   Tutorial
+                                 </Button>
+                               </UtilityFragment>
+                             </li>
+                             <li key={label3SubItems[1].id}>
+                               <UtilityFragment vPaddingVertical={4} vPaddingHorizontal={8}>
+                                 <Button
+                                   colorScheme="tertiary"
+                                   element={
+                                     <a
+                                       href="https://github.com/Evan-Varan/Visa_DesignSystemEngineering_TakeHomeAssignment"
+                                       target="_blank"
+                                       rel="noopener noreferrer"
+                                     >
+                                       Documentation
+                                     </a>
+                                   }
+                                 />
+                               </UtilityFragment>
+                             </li>
+                           </Listbox>
                         </DropdownMenu>
                       </FloatingFocusManager>
                     )}
@@ -339,6 +351,14 @@ export const NavBar = () => {
                 element={<RouterLink to="/build">Build</RouterLink>}
               />
             </Tab>
+            <Tab>
+              <Button
+                aria-current={location.pathname === '/savedsnippets' ? 'page' : undefined}
+                buttonSize="large"
+                colorScheme="tertiary"
+                element={<RouterLink to="/build">Saved Snippets</RouterLink>}
+              />
+            </Tab>
 
             <Tab tag="div">
               <Button
@@ -356,14 +376,18 @@ export const NavBar = () => {
               {mobileLabel3MenuOpen && (
                 <Tabs orientation="vertical" id={`${id}-mobile-help-sub-menu`}>
                   <Tab>
-                    <Button
-                      colorScheme="tertiary"
-                      onClick={() => {
-                        localStorage.setItem('hasSeenTour', 'false');
-                        navigate('/build');
-                        setMobileMenuOpen(false);
-                      }}
-                    >
+                                         <Button
+                       colorScheme="tertiary"
+                       onClick={() => {
+                         localStorage.setItem('showTutorial', 'true');
+                         // Dispatch custom event for same-tab communication
+                         window.dispatchEvent(new CustomEvent('localStorageChange', {
+                           detail: { key: 'showTutorial', value: 'true' }
+                         }));
+                         navigate('/build');
+                         setMobileMenuOpen(false);
+                       }}
+                     >
                       Tutorial
                     </Button>
                   </Tab>
@@ -376,7 +400,7 @@ export const NavBar = () => {
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          Github
+                          Documentation
                         </a>
                       }
                     />
