@@ -24,8 +24,8 @@ export const TwoFactorAuth = () => {
       {/* Button */}
       <Button>Verify</Button>
 
-      {/* Link */}
-      <Link href="./link" target="_blank" style={{ marginTop: '4px' }}>
+      {/* Link (dummy)*/}
+      <Link href="#" style={{ marginTop: '4px' }}> 
         Resend OTP?
       </Link>
     </Utility>

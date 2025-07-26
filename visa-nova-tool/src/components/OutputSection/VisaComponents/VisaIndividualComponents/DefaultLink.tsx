@@ -3,7 +3,7 @@
 import { Link } from '@visa/nova-react';
 
 export const DefaultLink = () => {
-  return <Link href="./link">Resend OTP?</Link>;
+  return <Link href="#">Resend OTP?</Link>; //dummy link
 };
 
 export const DefaultLinkCode = `
