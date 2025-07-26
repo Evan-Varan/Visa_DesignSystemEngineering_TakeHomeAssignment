@@ -41,24 +41,3 @@ Used Cursor and ChatGPT for the following:
 
 ---
 
-## Features
-- A free-form text field for developers to describe what they want to build
-- AI mock input interface
-- Output of suggested Visa Nova Components
-- Easily traversable output section through mini links
-- Live preview of the composed UI
-- Ability to save, copy, and download code snippets.
-- Saved snippets page with your saved snippets
-- Onboarding tour for first-time users (replayable via the navbar)
-- Accessibility features compliant with WCAG, VGAR, and Visa's own internal rules
-
----
-
-## Installation and Setup
-Clone the repository:  
-```bash
-git clone https://github.com/Evan-Varan/Visa_DesignSystemEngineering_TakeHomeAssignment.git
-cd visa-nova-tool
-npm install 
-npm run dev
-
