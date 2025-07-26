@@ -1,5 +1,5 @@
 /* Import Visa Nova core first (required for CSS variables) */
-@import "@visa/nova-styles/base/core.css";
+
 
 /* Import Visa Nova typography (required for fonts) */
 @import "@visa/nova-styles/base/typography/index.css";
