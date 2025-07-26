@@ -21,6 +21,7 @@ function DownloadSnippetButton({snippet , title}: {snippet: string, title: strin
   return (
     <Button 
       buttonSize="small"
+      aria-label={isDownloaded ? "Snippet downloaded successfully" : "Download snippet as TypeScript file"}
       style={{
         background: "#2d2d2d",
         color: "#fff",

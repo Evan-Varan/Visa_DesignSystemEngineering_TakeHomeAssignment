@@ -21,6 +21,7 @@ function SaveSnippetButton({snippet , title}: {snippet: string, title: string}) 
   return (
     <Button 
       buttonSize="small"
+      aria-label={isSaved ? "Snippet saved to local storage" : "Save snippet to local storage"}
       style={{
         background: "#2d2d2d",
         color: "#ffffff",
