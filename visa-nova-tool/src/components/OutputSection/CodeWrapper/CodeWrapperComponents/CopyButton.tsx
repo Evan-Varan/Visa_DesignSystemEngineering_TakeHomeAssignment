@@ -15,6 +15,7 @@ function CopyButton({ text }: {text: string}) {
     <Button
       onClick={handleCopy}
       buttonSize="small"
+      aria-label={copied ? "Code copied to clipboard" : "Copy code to clipboard"}
       style={{
         background: "#2d2d2d",
         color: "#fff",

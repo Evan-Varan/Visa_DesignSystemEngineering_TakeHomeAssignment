@@ -152,7 +152,7 @@ export const NavBar = () => {
           <UtilityFragment vFlex vGap={16}>
             <RouterLink
               aria-label="Visa Application Name Home"
-              to="/"
+              to="/build"
               id={`${id}-home-link`}
               style={{ backgroundColor: 'transparent', display: 'flex', alignItems: 'center', textDecoration: 'none' }}
             >
@@ -169,14 +169,6 @@ export const NavBar = () => {
             <nav aria-label="Label for horizontal example with active element">
               <UtilityFragment vGap={4}>
                 <Tabs>
-                  <Tab>
-                    <Button
-                      aria-current={location.pathname === '/' ? 'page' : undefined}
-                      buttonSize="large"
-                      colorScheme="tertiary"
-                      element={<RouterLink to="/">Home</RouterLink>}
-                    />
-                  </Tab>
                   <Tab>
                     <Button
                       aria-current={location.pathname === '/build' ? 'page' : undefined}
@@ -337,14 +329,6 @@ export const NavBar = () => {
           <Tabs orientation="vertical">
             <Tab>
               <Button
-                aria-current={location.pathname === '/' ? 'page' : undefined}
-                buttonSize="large"
-                colorScheme="tertiary"
-                element={<RouterLink to="/">Home</RouterLink>}
-              />
-            </Tab>
-            <Tab>
-              <Button
                 aria-current={location.pathname === '/build' ? 'page' : undefined}
                 buttonSize="large"
                 colorScheme="tertiary"
@@ -363,7 +347,7 @@ export const NavBar = () => {
             <Tab tag="div">
               <Button
                 aria-expanded={mobileLabel3MenuOpen}
-                aria-controls={mobileLabel3MenuOpen ? `${id}-mobile-help-sub-menu` : 'undefined'}
+                aria-controls={mobileLabel3MenuOpen ? `${id}-mobile-help-sub-menu` : undefined}
                 id={`${id}-mobile-menu-help-dropdown-button`}
                 buttonSize="large"
                 colorScheme="tertiary"

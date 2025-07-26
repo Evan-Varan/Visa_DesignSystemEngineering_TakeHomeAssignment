@@ -77,7 +77,9 @@ const Tutorial: React.FC = () => {
       showProgress
       disableOverlayClose
       locale={{
-        last: "5/5 (End)"
+        last: "End Tutorial",
+        skip: "Skip tutorial",
+        close: "Close tutorial",
       }}
       styles={{
         options: {

@@ -7,7 +7,11 @@ function ChatMessagesContainer({ messages }: {messages: ChatMessageType[]}) {
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    const container = messagesEndRef.current?.parentElement;
+    //Scroll to top of the container when new component is loaded
+    if (container && messagesEndRef.current) {
+      container.scrollTop = container.scrollHeight;
+    }
   };
 
   useEffect(() => {
@@ -15,16 +19,20 @@ function ChatMessagesContainer({ messages }: {messages: ChatMessageType[]}) {
   }, [messages]);
 
   return (
-    <div style={{
-      flex: "1", 
-      overflowY: "auto", 
-      padding: "20px", 
-      backgroundColor: "#f8fafc",
-      minHeight: "300px",
-      maxHeight: "500px",
-      scrollbarWidth: "thin",
-      scrollbarColor: "#cbd5e1 #f1f5f9"
-    }}>
+    <div 
+      aria-live="polite"
+      aria-label="Chat messages"
+      style={{
+        flex: "1", 
+        overflowY: "auto", 
+        padding: "20px", 
+        backgroundColor: "#f8fafc",
+        minHeight: "300px",
+        maxHeight: "500px",
+        scrollbarWidth: "thin",
+        scrollbarColor: "#cbd5e1 #f1f5f9"
+      }}
+    >
       {messages.map((message, index) => (
         <ChatMessage key={index} message={message} />
       ))}
