@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { NavBar } from './Navbar';
 import SavedSnippetsHeader from './SavedSnippets/SavedSnippetsHeader';
 import SavedSnippetsContainer from './SavedSnippets/SavedSnippetsContainer';
+import { DefaultFooter } from './OutputSection/VisaComponents/VisaIndividualComponents/DefaultFooter';
 
 function SavedSnippets() {
   const [snippets, setSnippets] = useState<any[]>([]);
@@ -26,6 +27,9 @@ function SavedSnippets() {
       <div style={{ maxWidth: 800, margin: '0 auto', padding: '20px' }}>
         <SavedSnippetsHeader numberOfSnippets={snippets.length} />
         <SavedSnippetsContainer snippets={snippets} />
+      </div>  
+      <div>
+        <DefaultFooter />
       </div>
     </div>
   );
