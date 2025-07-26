@@ -14,6 +14,7 @@
     "@types/react-router-dom": "^5.3.3",
     "@visa/nova-icons-react": "^2.0.4",
     "@visa/nova-react": "^2.5.4",
+    "clsx": "^2.1.1",
     "floating-ui": "^5.2.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
