@@ -13,6 +13,7 @@
     "verbatimModuleSyntax": true,
     "moduleDetection": "force",
     "noEmit": true,
+    "typeRoots": ["node_modules/@types", "src/types"],
     "jsx": "react-jsx",
 
     /* Linting */
@@ -22,5 +23,8 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["src"]
+  "include": [
+    "src",
+    "src/types/**/*.d.ts"
+  ]
 }
