@@ -21,8 +21,21 @@ function ChatInputArea({ onSend }: { onSend: (message: string) => void }) {
   };
 
   return (
-    <div style={{ padding: "20px", borderTop: "1px solid #e5e7eb", backgroundColor: "white" }}>
-      <div style={{ display: "flex", gap: "12px", alignItems: "flex-end" }}>
+    <div style={{ 
+      padding: "1.25rem", 
+      borderTop: "1px solid #e5e7eb", 
+      backgroundColor: "white",
+      minHeight: "5rem",
+      maxHeight: "5rem",
+      flexShrink: 0,
+      position: "relative"
+    }}>
+      <div style={{ 
+        display: "flex", 
+        gap: "0.75rem", 
+        alignItems: "center",
+        height: "2.5rem"
+      }}>
         <InputContainer style={{ flex: 1 }}>
           <Input
             type="text"

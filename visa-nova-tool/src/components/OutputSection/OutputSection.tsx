@@ -5,7 +5,7 @@ import EmptyOutputDisplay from "./EmptyOutputDisplay";
 
 function OutputSection({ searchTerm }: { searchTerm: string }) {
   return (
-    <div style={{ flex: "1.5", display: "flex", flexDirection: "column", minWidth: "500px", height: "100%" }}>
+    <div style={{ flex: "1.3", display: "flex", flexDirection: "column", minWidth: "750px", height: "100%" }}>
       <ContentCard style={{ height: "100%", display: "flex", flexDirection: "column", border: "1px solid #e5e7eb", borderRadius: "12px" }}>
         <ContentCardBody style={{ flex: "1", display: "flex", flexDirection: "column", padding: "0" }}>
           <OutputHeader />

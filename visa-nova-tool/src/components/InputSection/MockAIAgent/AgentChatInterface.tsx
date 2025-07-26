@@ -45,9 +45,17 @@ function AgentChatInterface({ setSearchTerm }: { setSearchTerm: (term: string) =
   };
 
   return (
-    <div style={{flex: "1", display: "flex", flexDirection: "column", minWidth: "400px", maxWidth: "500px", height: "100%"}}>
+    <div style={{flex: "1", display: "flex", flexDirection: "column", minWidth: "450px", maxWidth: "500px", height: "100%"}}>
       <ContentCard style={{height: "100%", display: "flex", flexDirection: "column", border: "1px solid #e5e7eb", borderRadius: "12px"}}>
-        <ContentCardBody style={{flex: "1", display: "flex", flexDirection: "column", padding: "0"}}>
+        <ContentCardBody style={{
+          flex: "1", 
+          display: "flex", 
+          flexDirection: "column", 
+          padding: "0",
+          height: "100%",
+          minHeight: "1px",
+          overflow: "hidden"
+        }}>
           <ChatHeader />
           <ChatMessagesContainer 
             messages={messages} 

@@ -25,10 +25,11 @@ function ChatMessagesContainer({ messages }: {messages: ChatMessageType[]}) {
       style={{
         flex: "1", 
         overflowY: "auto", 
-        padding: "20px", 
+        overflowX: "hidden",
+        padding: "1.25rem", 
         backgroundColor: "#f8fafc",
-        minHeight: "300px",
-        maxHeight: "500px",
+        minHeight: "0",
+        maxHeight: "100%",
         scrollbarWidth: "thin",
         scrollbarColor: "#cbd5e1 #f1f5f9"
       }}

@@ -11,7 +11,17 @@ const BuildPage: React.FC = () => {
     <div>
       <NavBar />
       <Tutorial />
-      <div style={{ display: "flex", height: "calc(100vh - 160px)", gap: "24px", padding: "40px 20px", maxWidth: "1400px", margin: "0 auto", position: "relative"}}>
+      <div style={{ display: "flex", 
+        justifyContent: "center",
+        alignItems: "center",
+        height: "calc(100vh - 120px)", 
+        minHeight: "600px",
+        gap: "1.5rem", 
+        padding: "2rem", 
+        maxWidth: "87.5rem", 
+        margin: "0 auto", 
+        position: "relative"
+      }}>
         <AgentChatInterface setSearchTerm={setSearchTerm} />
         <OutputSection searchTerm={searchTerm} />
       </div>
