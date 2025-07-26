@@ -1,17 +1,8 @@
-/* Import Visa Nova core first (required for CSS variables) */
+@import "./styles/Visa/typography-index.css";
+@import "./styles/Visa/index.css";
+@import "./styles/Visa/styles.css";
+@import "./styles/Visa/core.css";
 
-
-/* Import Visa Nova typography (required for fonts) */
-@import "@visa/nova-styles/base/typography/index.css";
-
-/* Import Visa Nova theme first (required for CSS variables) */
-@import "@visa/nova-styles/themes/default/index.css";
-
-/* Import all Visa Nova styles */
-@import "@visa/nova-styles/styles.css";
-
-/* Ensure proper font loading for Visa Nova Design System */
-/* The Visa Nova Design System should automatically load its fonts */
 
 /* Load Open Sans font as recommended by Visa Design System for browser-based applications */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
