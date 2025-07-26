@@ -7,7 +7,7 @@ import SavedSnippets from './components/SavedSnippetsPage'
 
 
 
-
+//Routing for the app (main page is the build page)
 function App() {
   return (
     <Router>

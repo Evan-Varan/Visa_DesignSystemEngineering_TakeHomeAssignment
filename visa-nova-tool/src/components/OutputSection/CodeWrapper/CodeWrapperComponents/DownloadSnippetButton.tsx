@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { VisaFileDownloadTiny } from "@visa/nova-icons-react";
 import { Button } from "@visa/nova-react";
 
 function DownloadSnippetButton({snippet , title}: {snippet: string, title: string}) {
   const [isDownloaded, setIsDownloaded] = useState(false);
 
+  //download snippet function
   const handleDownloadSnippet = (snippet: string, title: string) => {
     const blob = new Blob([snippet], { type: "text/plain;charset=utf-8" }); //create large binary object (blob)
     const link = document.createElement("a"); //create a download link element

@@ -1,4 +1,5 @@
-// If you are using Vite to run your application, please follow the instruction on the top of the page.
+//This is the Visa default footer component
+
 import { Footer, Link, Utility, VisaLogo } from '@visa/nova-react';
 
 export const DefaultFooter = () => {

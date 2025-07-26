@@ -1,3 +1,4 @@
+//This is the combined Visa Components to create an example News Letter Form
 import { Input, InputContainer, Label, Utility, Checkbox, Button } from '@visa/nova-react';
 
 const inputId = 'newsletter-email';

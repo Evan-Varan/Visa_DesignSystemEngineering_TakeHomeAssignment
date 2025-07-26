@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import AgentChatInterface from "./InputSection/MockAIAgent/AgentChatInterface";
 import OutputSection from "./OutputSection/OutputSection";
-import { NavBar } from "./Navbar";
+import { NavBar } from "./VisaNavbar";
 import Tutorial from "./Tutorial";
 
 const BuildPage: React.FC = () => {

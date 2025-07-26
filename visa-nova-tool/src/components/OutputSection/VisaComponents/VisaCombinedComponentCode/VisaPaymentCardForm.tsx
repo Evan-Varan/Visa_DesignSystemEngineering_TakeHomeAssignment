@@ -1,5 +1,7 @@
+//This is the combined Visa Components to create an example Payment Card Form
+
 import { VisaPasswordHideTiny, VisaPasswordShowTiny } from '@visa/nova-icons-react';
-import { Button, Input, InputContainer, Label, Utility, Checkbox, InputMessage } from '@visa/nova-react';
+import { Button, Input, InputContainer, Label, Utility, Checkbox} from '@visa/nova-react';
 import { useState } from 'react';
 
 // TIP: Customize these IDs, pass them as props, or auto-generate them with useId() from @react

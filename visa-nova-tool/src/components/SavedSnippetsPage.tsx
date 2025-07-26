@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { NavBar } from './Navbar';
-import SavedSnippetsHeader from './SavedSnippets/SavedSnippetsHeader';
+import { NavBar } from './VisaNavbar';
+import SavedSnippetsHeader from './SavedSnippets/SavedSnippetsPageHeader';
 import SavedSnippetsContainer from './SavedSnippets/SavedSnippetsContainer';
 import { DefaultFooter } from './OutputSection/VisaComponents/VisaIndividualComponents/DefaultFooter';
 

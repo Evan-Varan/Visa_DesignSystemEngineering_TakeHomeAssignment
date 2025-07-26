@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { GenericMessageTiny, VisaChevronDownTiny, VisaChevronUpTiny } from "@visa/nova-icons-react";
+import { VisaChevronDownTiny, VisaChevronUpTiny } from "@visa/nova-icons-react";
 import { Typography } from "@visa/nova-react";
 import { CombinedComponents } from "./VisaComponents/VisaComponentExamples";
 import type { CombinedComponent, Component } from "./VisaComponents/VisaComponentExamples";
@@ -38,34 +38,10 @@ const styles = {
     boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
     transition: 'box-shadow 0.2s ease'
   },
-  welcome: {
-    display: "flex" as const,
-    flexDirection: "column" as const,
-    alignItems: "center" as const,
-    justifyContent: "center" as const,
-    height: "100%",
-    color: "#6b7280",
-    textAlign: "center" as const
-  }
 };
 
 function OutputContent({ searchTerm }: { searchTerm: string }) {
   const componentRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
-
-  //Display if there is no search term
-  if (!searchTerm) {
-    return (
-      <div style={styles.welcome}>
-        <GenericMessageTiny/>
-        <Typography variant="body-1" style={{ marginBottom: "8px" }}>
-          Start a conversation with the AI Assistant
-        </Typography>
-        <Typography variant="body-2" style={{ opacity: 0.7 }}>
-          Ask for components like "responsive login form" or "search bar"
-        </Typography>
-      </div>
-    );
-  }
 
   //Find the combined component by name (case-insensitive)
   const combined = CombinedComponents.find(
@@ -129,7 +105,7 @@ function OutputContent({ searchTerm }: { searchTerm: string }) {
               >
               <div 
                 style={styles.clickable}
-                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} //scroll to top of the page if clicked on individual component
               >
                 <Typography variant="body-1">{part.name}</Typography>
                 <VisaChevronUpTiny />

@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { VisaCopyTiny } from "@visa/nova-icons-react";
 import { Button } from "@visa/nova-react";
 
 function CopyButton({ text }: {text: string}) {
   const [copied, setCopied] = useState(false);
 
+  //copy to clipboard function
   const handleCopy = () => {
     navigator.clipboard.writeText(text);
     setCopied(true);

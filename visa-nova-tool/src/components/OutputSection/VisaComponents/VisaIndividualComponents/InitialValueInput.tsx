@@ -1,3 +1,5 @@
+//This is the Visa default input component
+
 import { Input, InputContainer, Label, Utility } from '@visa/nova-react';
 
 // TIP: Customize this ID, pass it as a prop, or auto-generate it with useId() from @react

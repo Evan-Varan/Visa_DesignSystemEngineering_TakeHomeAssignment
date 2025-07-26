@@ -1,6 +1,7 @@
 import { ContentCard, ContentCardBody } from "@visa/nova-react";
 import OutputHeader from "./OutputHeader";
 import OutputContent from "./OutputContent";
+import EmptyOutputDisplay from "./EmptyOutputDisplay";
 
 function OutputSection({ searchTerm }: { searchTerm: string }) {
   return (
@@ -9,7 +10,11 @@ function OutputSection({ searchTerm }: { searchTerm: string }) {
         <ContentCardBody style={{ flex: "1", display: "flex", flexDirection: "column", padding: "0" }}>
           <OutputHeader />
           <div style={{ flex: "1", overflowY: "auto", padding: "24px", backgroundColor: "white", position: "relative", borderRadius: "0 0 12px 12px" }}>
-            <OutputContent searchTerm={searchTerm} />
+            {searchTerm ? (
+              <OutputContent searchTerm={searchTerm} />
+            ) : (
+              <EmptyOutputDisplay />
+            )}
           </div>
         </ContentCardBody>
       </ContentCard>

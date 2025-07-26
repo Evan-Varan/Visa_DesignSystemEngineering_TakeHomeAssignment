@@ -1,4 +1,3 @@
-import React from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import CopyButton from "./CodeWrapperComponents/CopyButton";
@@ -30,6 +29,7 @@ function CodeBlockWrapper ({code , title}: {code: string, title: string}){
           fontFamily: "monospace",
         }}
       >
+        {/* Creating the wrapper with our components */}
         <span>tsx</span>
         <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
           <CopyButton text={code} />
@@ -38,7 +38,7 @@ function CodeBlockWrapper ({code , title}: {code: string, title: string}){
         </div>
       </div>
 
-      {/* Syntax highlighted code */}
+      {/* So the code looks like actual code */}
       <SyntaxHighlighter
         language="tsx"
         style={oneDark}

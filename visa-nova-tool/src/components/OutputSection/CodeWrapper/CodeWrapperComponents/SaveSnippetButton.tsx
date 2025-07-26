@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { VisaSaveTiny } from "@visa/nova-icons-react";
 import { Button } from "@visa/nova-react";
 
 function SaveSnippetButton({snippet , title}: {snippet: string, title: string}) {
   const [isSaved, setIsSaved] = useState(false);
 
+  //save snippet function
   const handleSaveSnippet = () => {
     // Get saved snippets or start empty
     const savedSnippets = JSON.parse(localStorage.getItem('savedSnippets') || '[]');

@@ -6,6 +6,7 @@ import type { Step } from "react-joyride";
 const Tutorial: React.FC = () => {
   const [run, setRun] = useState(false);
 
+  //Steps for the tutorial
   const steps: Step[] = [
     {
       target: "body",

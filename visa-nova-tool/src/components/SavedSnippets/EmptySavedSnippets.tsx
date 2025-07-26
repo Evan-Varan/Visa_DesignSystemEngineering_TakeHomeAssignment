@@ -37,7 +37,7 @@ function EmptySavedSnippets() {
         textAlign: 'center',
         maxWidth: '300px'
       }}>
-        Start building components and save your favorite code snippets here for quick access
+        Start building components and save your favorite code snippets here for quick access!
       </Typography>
     </div>
   );

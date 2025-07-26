@@ -35,9 +35,11 @@ function ChatInputArea({ onSend }: { onSend: (message: string) => void }) {
             // disabled={disabled}
           />
         </InputContainer>
-        <div id="chat-input-description" style={{ display: "none" }}>
+
+        <div id="chat-input-description" style={{ display: "none" }}> {/*only for screen readers*/}
           Type your message and press Enter or click the send button to submit
         </div>
+
         <Button 
           buttonSize="large" 
           onClick={handleSend}

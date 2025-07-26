@@ -1,3 +1,4 @@
+//This is the combined Visa Components to create an example Search Bar
 
 import { Button, Input, InputContainer, Label, Utility } from '@visa/nova-react';
 

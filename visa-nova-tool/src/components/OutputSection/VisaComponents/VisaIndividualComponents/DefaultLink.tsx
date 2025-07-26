@@ -1,3 +1,5 @@
+//This is the Visa default link component
+
 import { Link } from '@visa/nova-react';
 
 export const DefaultLink = () => {

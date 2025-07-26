@@ -1,5 +1,6 @@
 
-import React from 'react';
+//This is the combined Visa Components to create an example 2FA Form
+
 import { Button, Input, InputContainer, Label, Utility, Link } from '@visa/nova-react';
 
 export const TwoFactorAuth = () => {

@@ -1,3 +1,5 @@
+//This file is for organization of our combined components and everything that goes with the specific combined component
+
 import React from "react";
 import { LoginFormCode } from "./VisaCombinedComponentCode/VisaLoginForm";
 import { InitialValueInput, InitialValueInputCode } from "./VisaIndividualComponents/InitialValueInput";
@@ -15,12 +17,14 @@ import  {PaymentCardForm}  from "./VisaCombinedComponentCode/VisaPaymentCardForm
 import  {LoginForm}  from "./VisaCombinedComponentCode/VisaLoginForm";
 import  {TwoFactorAuth}  from "./VisaCombinedComponentCode/Visa2FAVerificationForm";
 
+//Individual Component type
 export type Component = {
   name: string;
   preview: React.FC;
   code: string;
 };
 
+//Combined Component type
 export type CombinedComponent = {
   name: string;
   combinedPreview: React.FC;

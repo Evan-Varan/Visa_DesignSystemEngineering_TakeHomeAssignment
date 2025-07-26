@@ -8,12 +8,12 @@ function ChatMessagesContainer({ messages }: {messages: ChatMessageType[]}) {
 
   const scrollToBottom = () => {
     const container = messagesEndRef.current?.parentElement;
-    //Scroll to top of the container when new component is loaded
     if (container && messagesEndRef.current) {
       container.scrollTop = container.scrollHeight;
     }
   };
-
+  
+//scroll to bottom of the ai agentcontainer when new component is loaded
   useEffect(() => {
     scrollToBottom();
   }, [messages]);

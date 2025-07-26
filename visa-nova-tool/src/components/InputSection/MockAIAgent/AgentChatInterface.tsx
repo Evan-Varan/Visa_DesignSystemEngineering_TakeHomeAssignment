@@ -14,34 +14,33 @@ function AgentChatInterface({ setSearchTerm }: { setSearchTerm: (term: string) =
   ]);
 
   const handleSendMessage = (message: string) => {
+
+    //user message object
     const userMessage: ChatMessage = {
       text: message,
       isUser: true
     };
 
-    setMessages(prev => [...prev, userMessage]);
+    setMessages(prev => [...prev, userMessage]); //add user message to messages
 
     const inputText = message.trim().toLowerCase();
     let aiResponse = "";
     let searchTerm = "";
 
-    if (inputText === "responsive login form with remember me" || 
-        inputText === "search bar" || 
-        inputText === "payment card form" || 
-        inputText === "news letter" || 
-        inputText === "2fa verification form") {
+    if (inputText === "responsive login form with remember me" || inputText === "search bar" || inputText === "payment card form" || inputText === "news letter" || inputText === "2fa verification form") {
       aiResponse = `Here's a simple ${message} using Visa Nova design components...`;
       searchTerm = message;
     } else {
       aiResponse = `I couldn't find a match for "${message}". Try one of these examples: "responsive login form with remember me", "search bar", "payment card form", "news letter", or "2fa verification form".`;
     }
 
+    //ai message object
     const aiMessage: ChatMessage = {
       text: aiResponse,
       isUser: false
     };
 
-    setMessages(prev => [...prev, aiMessage]);
+    setMessages(prev => [...prev, aiMessage]); //add ai message to messages
     setSearchTerm(searchTerm);
   };
 
