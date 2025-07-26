@@ -12,6 +12,7 @@
   "dependencies": {
     "@floating-ui/react": "^0.27.13",
     "@types/react-router-dom": "^5.3.3",
+    "@visa/nova-icons-react": "^2.0.4",
     "@visa/nova-react": "^2.5.4",
     "floating-ui": "^5.2.8",
     "react": "^18.2.0",
