@@ -19,19 +19,15 @@ import {
 } from '@visa/nova-icons-react';
 import {
   Avatar,
-  Badge,
   Button,
   Divider,
   DropdownButton,
   DropdownMenu,
-  Input,
-  InputContainer,
   Link,
   Listbox,
   ListboxItem,
   Nav,
   NavAppName,
-  Surface,
   Tab,
   TabSuffix,
   Tabs,
@@ -40,7 +36,7 @@ import {
   UtilityFragment,
   VisaLogo,
 } from '@visa/nova-react';
-import { type CSSProperties, useRef, useState } from 'react';
+import { type CSSProperties, useState } from 'react';
 import { Link as RouterLink, useNavigate, useLocation } from 'react-router-dom';
 
 // TIP: Customize this ID, pass it as a prop, or auto-generate it with useId() from @react
